@@ -1,0 +1,858 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Minecraft Server Firedragon</title>
+    <link rel="icon" type="image/png" href="media/TeamFiredragon.jpg" />
+    <link rel="stylesheet" href="media/style.css" />
+    <link rel="stylesheet" href="media/arenawar-styles.css" />
+    <link
+      href="https://fonts.bunny.net/css?family=Space+Grotesk:wght@500;700;800&display=swap"
+      rel="stylesheet"
+    />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css"
+    />
+  </head>
+
+  <body>
+    <!-- Scroll Progress Bar -->
+    <div class="scroll-progress-bar"></div>
+    <!-- Desktop Navbar with Enhanced Effects -->
+    <nav class="desktop_navbar">
+      <a href="#" class="navbar-logo-wrapper"
+        ><img
+          class="desktop_navbar_logo_img"
+          src="media/TeamFiredragon-logo.png"
+          alt="logo"
+      /></a>
+      <a
+        href="https://www.facebook.com/groups/1008294419676891"
+        class="desktop_navbar_link nav-link-enhanced"
+        >Group Fanpage</a
+      >
+      <a href="#discord" class="desktop_navbar_link nav-link-enhanced scroll" data-i18n="nav_server">Máy chủ</a>
+      <a href="#about" class="desktop_navbar_link nav-link-enhanced scroll" data-i18n="nav_contact">Liên hệ</a>
+      <div class="language-switcher-desktop" id="langSwitcherDesktop">
+        <button class="lang-btn active" data-lang="vi" title="Tiếng Việt">VI</button>
+        <span class="lang-separator">|</span>
+        <button class="lang-btn" data-lang="en" title="English">EN</button>
+      </div>
+      <div class="desktop_navbar_link2_div nav-button-enhanced">
+        <a href="#join" class="desktop_navbar_link2 scroll" data-i18n="nav_join"> Tham gia BloodMoon! </a
+        >
+      </div>
+    </nav>
+    <!-- Mobile Navbar with Enhanced Effects -->
+    <div class="mobile_navbar">
+      <a href="#" class="mobile_navbar_logo_img_a"
+        ><img
+          class="mobile_navbar_logo_img"
+          src="media/TeamFiredragon-logo.png"
+          alt="logo"
+      /></a>
+      <div id="mobile_navbar_links" class="mobile-menu">
+        <div class="language-switcher-mobile" id="langSwitcherMobile">
+          <button class="lang-btn active" data-lang="vi" title="Tiếng Việt">VI</button>
+          <button class="lang-btn" data-lang="en" title="English">EN</button>
+        </div>
+        <a
+          class="mobile_navbar_link mobile-link-item"
+          onclick="mobile_navbar_link_hider()"
+          href="https://www.facebook.com/groups/1008294419676891"
+          >Group Fanpage</a
+        >
+        <a
+          class="mobile_navbar_link mobile-link-item scroll"
+          onclick="mobile_navbar_link_hider()"
+          href="#discord"
+          data-i18n="nav_server"
+          >Máy chủ</a
+        >
+        <a
+          class="mobile_navbar_link mobile-link-item scroll"
+          onclick="mobile_navbar_link_hider()"
+          href="#about"
+          data-i18n="nav_contact"
+          >Liên hệ</a
+        >
+        <a
+          class="mobile_navbar_link mobile-link-item scroll"
+          onclick="mobile_navbar_link_hider()"
+          href="#join"
+          data-i18n="nav_join"
+          >Tham gia cùng chúng tôi!</a
+        >
+      </div>
+      <div class="icon hamburger-menu" onclick="mobile_navbar_link_hider()">
+        <i class="fa fa-bars"></i>
+      </div>
+    </div>
+    <div class="mainflex">
+      <!-- HERO Section with Enhanced Animations -->
+      <div class="main1">
+        <a class="main1_logo_a">
+          <img class="main1_logo" src="media/DKPMCSVs.png" alt="logo" />
+        </a>
+        <div class="main1_description" style="animation-delay: 0.2s">
+          <span>Minecraft,</span><br />
+          <a class="main1_actcent">always done better</a><a>.</a>
+        </div>
+        <div class="main1_ipcopier_div" style="animation-delay: 0.3s">
+          <button class="main1_ipcopier" onclick="copyText()" type="button">
+            <span class="main1_ipcopier_text1">play.example.com</span>
+            <br />
+            <span class="main1_ipcopier_text2">Click to copy</span>
+          </button>
+          <!-- Tooltip for copy feedback -->
+          <div class="copy-tooltip" id="copyTooltip">Copied!</div>
+        </div>
+        <a href="#more" class="scroll">
+          <img
+            alt="downarrow"
+            class="main1_downarrow"
+            src="media/downarrow.png"
+          />
+        </a>
+      </div>
+      <div id="more"></div>
+
+      <!-- FEATURES Section with BloodMoon Title and Animated Cards -->
+      <div class="main2">
+        <div class="bloodmoon_section">
+          <div class="bloodmoon_content">
+            <h2 class="bloodmoon_title">BloodMoon FDG</h2>
+            <p class="bloodmoon_subtitle">Che do game dac biet chi cho anh chi em thuc thu</p>
+            <div class="bloodmoon_divider"></div>
+          </div>
+        </div>
+        <div class="main2_features_div">
+          <div class="main2_feature" style="animation-delay: 0.05s">
+            <img
+              class="main2_feature_img"
+              alt="Feature Image"
+              src="media/Join/suvival.png"
+            />
+            <a class="main2_feature_headline" data-i18n="feature1_title">Sinh Tồn Lâu Dài</a>
+            <a class="main2_feature_text" data-i18n="feature1_desc"
+              >Thế giới sinh tồn được thiết kế cho hành trình phát triển bền
+              vững.</a
+            >
+          </div>
+
+          <div class="main2_feature" style="animation-delay: 0.1s">
+            <img
+              class="main2_feature_img"
+              alt="Feature Image"
+              src="media/Join/blood.png"
+            />
+            <a class="main2_feature_headline" data-i18n="feature2_title">Săn Huyết Tinh</a>
+            <a class="main2_feature_text" data-i18n="feature2_desc"
+              >Tiêu diệt quái và boss để thu thập Huyết Tinh giá trị.</a
+            >
+          </div>
+
+          <div class="main2_feature" style="animation-delay: 0.15s">
+            <img
+              class="main2_feature_img"
+              alt="Feature Image"
+              src="media/Join/rank.png"
+            />
+            <a class="main2_feature_headline" data-i18n="feature3_title">Bảng Xếp Hạng Tháng</a>
+            <a class="main2_feature_text" data-i18n="feature3_desc"
+              >Cạnh tranh sát thương và tiêu diệt để vươn lên top.</a
+            >
+          </div>
+
+          <div class="main2_feature" style="animation-delay: 0.2s">
+            <img
+              class="main2_feature_img"
+              alt="Feature Image"
+              src="media/Join/lock.png"
+            />
+            <a class="main2_feature_headline" data-i18n="feature4_title">Tiến Trình Ổn Định</a>
+            <a class="main2_feature_text" data-i18n="feature4_desc"
+              >Dữ liệu tài khoản được lưu trữ và bảo mật lâu dài.</a
+            >
+          </div>
+
+          <div class="main2_feature" style="animation-delay: 0.25s">
+            <img
+              class="main2_feature_img"
+              alt="Feature Image"
+              src="media/Join/friends.png"
+            />
+            <a class="main2_feature_headline" data-i18n="feature5_title">Chơi Cùng Đồng Đội</a>
+            <a class="main2_feature_text" data-i18n="feature5_desc"
+              >Hợp tác cùng bạn bè để sinh tồn và thống trị cuộc săn.</a
+            >
+          </div>
+        </div>
+      </div>
+
+      <div id="discord"></div>
+
+      <!-- DISCORD Section with Hover Effects -->
+      <div class="main4">
+        <a class="headline fade-in-up" data-i18n="discord_title">Join the Discord</a>
+        <div class="main4_dc_div">
+          <img
+            class="main4_dc_widget"
+            src="media/169.png"
+            width="350"
+            height="500"
+            title="discord"
+            sandbox="allow-popups allow-popups-to-escape-sandbox allow-same-origin allow-scripts"
+          />
+          <div class="main4_dc_description_div">
+            <a class="main4_dc_description_title" data-i18n="discord_subtitle">Let's talk!</a>
+            <a class="main4_dc_description" data-i18n="discord_desc">
+              ・Meet other players <br />
+              ・Ask questions <br />
+              ・Get notified about updates <br />
+              ・Give feedback <br /><br />
+              &amp; more
+            </a>
+            <a href="https://discord.gg/pSt9VFgZ" class="main4_dc_button_a">
+              <div class="main4_dc_button" data-i18n="discord_btn">Join</div>
+            </a>
+          </div>
+        </div>
+      </div>
+      <div id="about"></div>
+
+      <!-- INTERNAL SERVER & ARENA WARS Section -->
+      <div class="main6">
+        <a class="headline fade-in-up" data-i18n="internal_server_title">Máy chủ nội bộ</a>
+        <div class="main6_server_div">
+          <div class="main6_server_card">
+            <div class="main6_server_name" data-i18n="internal_server_name">ArenaWar</div>
+            <div class="main6_server_icon">⚔️</div>
+            <p class="main6_server_description" data-i18n="internal_server_desc">Sinh tồn, cướp bóc đến ngày chiến tranh trong đấu trường với những vật phẩm đã có trong quá trình sinh tồn để PvP và tính điểm / kill</p>
+            <div class="main6_server_access" data-i18n="internal_server_access">Chỉ dành cho thành viên chính thức</div>
+          </div>
+        </div>
+
+        <!-- ARENA WARS - Consolidated Section -->
+        <div class="arenawar_section">
+          
+          <!-- Arena Wars Header -->
+          <div class="arenawar_header">
+            <h2 class="arenawar_title" data-i18n="arenawar_title">⚔️ Arena Wars Tournament ⚔️</h2>
+            <p class="arenawar_subtitle" data-i18n="arenawar_subtitle">Trận đấu khốc liệt giữa những đội mạnh nhất - Chiên tranh vì vinh quang</p>
+          </div>
+
+          <!-- Season 1: Past Results with Video -->
+          <div class="arenawar_season arenawar_season_1">
+            <div class="arenawar_season_label season_1_label" data-i18n="season1_label">Season 1 - Past Results</div>
+            
+            <div class="arenawar_season_content">
+              <div class="arenawar_video_container">
+                <div class="arenawar_video_wrapper">
+                  <iframe 
+                    class="arenawar_video_embed"
+                    src="https://www.youtube.com/embed/xyK5ZAIcY0c?autoplay=0&rel=0" 
+                    frameborder="0" 
+                    allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" 
+                    allowfullscreen>
+                  </iframe>
+                </div>
+              </div>
+
+              <div class="arenawar_results_container">
+                <h3 class="arenawar_results_title" data-i18n="arenawar_results_title">Kết Quả Đối Đầu</h3>
+                
+                <!-- VS Badge in the middle -->
+                <div class="arenawar_vs_badge">
+                  <div class="arenawar_vs_trophy">🏆</div>
+                </div>
+
+                <!-- Teams Container with separate divs -->
+                <div class="arenawar_results_wrapper">
+                  <!-- Team 1 - Loser -->
+                  <div class="arenawar_team_result arenawar_team_loser">
+                    <div class="result_status result_loser_badge" data-i18n="match_loser">Thua</div>
+                    <img class="arenawar_team_logo" src="media/Team1.jpg" alt="Team Firedragon" />
+                    <div class="arenawar_team_info">
+                      <div class="arenawar_team_name" data-i18n="arenawar_team1_name">Firedragon</div>
+                      <div class="arenawar_team_members" data-i18n="arenawar_team1_members">DeathShadow, Duck, Kido, Fox</div>
+                    </div>
+                  </div>
+                  
+                  <!-- Team 2 - Winner -->
+                  <div class="arenawar_team_result arenawar_team_winner">
+                    <div class="result_status result_winner_badge" data-i18n="match_winner">Chiến Thắng</div>
+                    <img class="arenawar_team_logo" src="media/KFLG.jpg" alt="Team KFLG" />
+                    <div class="arenawar_team_info">
+                      <div class="arenawar_team_name" data-i18n="arenawar_team2_name">KFLG</div>
+                      <div class="arenawar_team_members" data-i18n="arenawar_team2_members">ZenusHL, KailenMC, KenziMC</div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Divider -->
+          <div class="arenawar_divider"></div>
+
+          <!-- Season 2: Upcoming Event with Countdown -->
+          <div class="arenawar_season arenawar_season_2">
+            <div class="arenawar_season_label season_2_label" data-i18n="season2_label">Season 2 - Sắp Diễn Ra</div>
+            
+            <div class="arenawar_season_content">
+              <!-- Countdown Timer -->
+              <div class="arenawar_countdown_section">
+                <div class="arenawar_countdown_title" data-i18n="season2_countdown">Đếm ngược đến khởi động</div>
+                <div class="arenawar_countdown_timer">
+                  <div class="arenawar_countdown_item">
+                    <div class="arenawar_countdown_number" id="days">00</div>
+                    <div class="arenawar_countdown_unit" data-i18n="countdown_days">Ngày</div>
+                  </div>
+                  <div class="arenawar_countdown_separator">:</div>
+                  <div class="arenawar_countdown_item">
+                    <div class="arenawar_countdown_number" id="hours">00</div>
+                    <div class="arenawar_countdown_unit" data-i18n="countdown_hours">Giờ</div>
+                  </div>
+                  <div class="arenawar_countdown_separator">:</div>
+                  <div class="arenawar_countdown_item">
+                    <div class="arenawar_countdown_number" id="minutes">00</div>
+                    <div class="arenawar_countdown_unit" data-i18n="countdown_minutes">Phút</div>
+                  </div>
+                  <div class="arenawar_countdown_separator">:</div>
+                  <div class="arenawar_countdown_item">
+                    <div class="arenawar_countdown_number" id="seconds">00</div>
+                    <div class="arenawar_countdown_unit" data-i18n="countdown_seconds">Giây</div>
+                  </div>
+                </div>
+              </div>
+
+              <!-- Teams Section -->
+              <div class="arenawar_teams_section">
+                <h3 class="arenawar_teams_title" data-i18n="arenawar_teams_title">Đội Tham Dự</h3>
+                <div class="arenawar_teams_grid">
+                  <div class="arenawar_team_card arenawar_team_card_1">
+                    <img class="arenawar_team_logo_large" src="media/Team1.jpg" alt="Team Firedragon" />
+                    <div class="arenawar_team_card_name" data-i18n="team1_name">Firedragon</div>
+                    <div class="arenawar_team_card_members" data-i18n="team1_members">RAYKY VN, SanKiYa VN, DeathShadow, Duck, Kido, Fox</div>
+                  </div>
+
+                  <div class="arenawar_team_card arenawar_team_card_2">
+                    <img class="arenawar_team_logo_large" src="media/KFLG.jpg" alt="Team KFLG" />
+                    <div class="arenawar_team_card_name" data-i18n="team2_name">KFLG</div>
+                    <div class="arenawar_team_card_members" data-i18n="team2_members">ZenusHL, KailenMC, KenziMC, SerenaVN, CubaduMC</div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- LEADERSHIP Section with Cards -->
+      <div class="main5">
+        <div class="main5_admin_div">
+          <div class="main5_admins_div main5_admins_dev_type1">
+            <img class="main5_admins_img" src="media/DuKapai.jpg" alt="Dipax" />
+            <div class="main5_admins_description_div">
+              <a class="main5_admins_description_rank main5_admins_description_rank_admin" data-i18n="admin_rank_1"
+                >[Chief Administrator]
+              </a>
+              <a
+                class="main5_admins_description_title"
+                href=""
+              >
+                Dipax
+              </a>
+              <a class="main5_admins_description" data-i18n="admin1_info">
+                Nguyen Hoang Dung<br />
+                Server Owner
+              </a>
+            </div>
+          </div>
+        </div>
+
+        <a class="headline" data-i18n="admin_team_title">Administration Team</a>
+
+        <div class="main5_supporter_div">
+          <div class="main5_supporters_div">
+            <img
+              class="main5_supporters_img"
+              src="media/Panda.png"
+              alt="Panda"
+            />
+            <div class="main5_supporters_description_div">
+              <a
+                class="main5_supporters_description_rank main5_supporters_description_rank_supporter" data-i18n="admin_rank_2"
+              >
+                [Sub-Administrator]
+              </a>
+              <a
+                class="main5_supporters_description_title"
+                href="https://www.facebook.com/duongha.anh.353/"
+              >
+                Panda
+              </a>
+              <a class="main5_supporters_description" data-i18n="admin2_info">
+                Duong Ha Quynh Anh<br />
+                Community Supervisor
+              </a>
+            </div>
+          </div>
+
+          <div class="main5_supporters_div">
+            <img class="main5_supporters_img" src="media/PH.png" alt="Rayky" />
+            <div class="main5_supporters_description_div">
+              <a
+                class="main5_supporters_description_rank main5_supporters_description_rank_supporter" data-i18n="admin_rank_2"
+              >
+                [Sub-Administrator]
+              </a>
+              <a
+                class="main5_supporters_description_title"
+                href="https://www.facebook.com/phonghuynh031226"
+              >
+                RAYKY VN
+              </a>
+              <a class="main5_supporters_description" data-i18n="admin3_info">
+                Huynh Thanh Phong<br />
+                Infrastructure & Security Administrator
+              </a>
+            </div>
+          </div>
+
+          <div class="main5_supporters_div">
+            <img
+              class="main5_supporters_img"
+              src="media/SanKiYa.png"
+              alt="Sankiya"
+            />
+            <div class="main5_supporters_description_div">
+              <a
+                class="main5_supporters_description_rank main5_supporters_description_rank_supporter" data-i18n="admin_rank_2"
+              >
+                [Sub-Administrator]
+              </a>
+              <a
+                class="main5_supporters_description_title"
+                href="https://www.facebook.com/profile.php?id=61583058249473"
+              >
+                Sankiya VN
+              </a>
+              <a class="main5_supporters_description" data-i18n="admin4_info">
+                Bui Duy Truong<br/>
+                Server Operator
+              </a>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div id="join"></div>
+
+      <!-- HOW TO JOIN Section with Animated Boxes -->
+      <div class="main3">
+        <a class="headline fade-in-up" data-i18n="howtojoin_title">How to join</a>
+        <div class="main3_join_div_div">
+          <div class="main3_join_div" style="animation-delay: 0.1s">
+            <a class="main3_join_title" data-i18n="java_title">Java</a>
+            <div class="main3_join_content_div">
+              <div class="main3_join_categories">
+                <a data-i18n="join_ip">IP:</a>
+                <a data-i18n="join_version">Version:</a>
+              </div>
+              <div class="main3_join_values">
+                <a>play.example.com</a>
+                <a>1.21.1</a>
+              </div>
+            </div>
+          </div>
+          <div class="main3_join_div" style="animation-delay: 0.15s">
+            <a class="main3_join_title" data-i18n="bedrock_title">Bedrock</a>
+            <div class="main3_join_content_div">
+              <div class="main3_join_categories">
+                <a data-i18n="join_ip">IP:</a>
+                <a data-i18n="join_port">Port:</a>
+              </div>
+              <div class="main3_join_values">
+                <a>be.example.com</a>
+                <a>69420</a>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <footer class="copyright_div">
+      <a href="https://github.com/FQQD/MCServer-Web-Template" class="copyright" data-i18n="footer_credit"
+        >Made by FQQD 2023 - Edited by DuKapai 2026</a
+      >
+    </footer>
+
+    <script>
+      // ==================== COPY TEXT FUNCTION ====================
+      function copyText() {
+        const text = "play.example.com";
+        const tooltip = document.getElementById("copyTooltip");
+
+        if (navigator.clipboard && window.isSecureContext) {
+          navigator.clipboard.writeText(text);
+        } else {
+          const temp = document.createElement("textarea");
+          temp.value = text;
+          document.body.appendChild(temp);
+          temp.select();
+          document.execCommand("copy");
+          document.body.removeChild(temp);
+        }
+
+        // Show tooltip
+        tooltip.classList.add("show");
+        setTimeout(() => {
+          tooltip.classList.remove("show");
+        }, 2000);
+      }
+
+      // ==================== MOBILE NAVBAR TOGGLE ====================
+      function mobile_navbar_link_hider() {
+        const x = document.getElementById("mobile_navbar_links");
+        const icon = document.querySelector(".hamburger-menu i");
+        
+        if (x.style.display === "flex") {
+          x.style.display = "none";
+          icon.classList.remove("active");
+        } else {
+          x.style.display = "flex";
+          icon.classList.add("active");
+        }
+      }
+
+      // ==================== SMOOTH SCROLL ====================
+      const scrollLinks = document.querySelectorAll(".scroll");
+      scrollLinks.forEach(function (link) {
+        link.addEventListener("click", function (event) {
+          event.preventDefault();
+          const target = document.querySelector(link.getAttribute("href"));
+          if (target) {
+            const offsetTop = target.offsetTop;
+            window.scrollTo({
+              top: offsetTop,
+              behavior: "smooth",
+            });
+          }
+        });
+      });
+
+      // ==================== PARALLAX EFFECT ====================
+      (function () {
+        if (window.innerWidth <= 768) return;
+
+        const section = document.querySelector(".main1");
+        if (!section) return;
+
+        let mouseX = 0;
+        let mouseY = 0;
+        let currentX = 0;
+        let currentY = 0;
+
+        const strength = 30;
+        const smoothness = 0.07;
+
+        document.addEventListener("mousemove", function (e) {
+          mouseX = e.clientX;
+          mouseY = e.clientY;
+
+          const rect = section.getBoundingClientRect();
+          const percentX = ((e.clientX - rect.left) / rect.width) * 100;
+          const percentY = ((e.clientY - rect.top) / rect.height) * 100;
+
+          section.style.setProperty("--light-x", percentX + "%");
+          section.style.setProperty("--light-y", percentY + "%");
+        });
+
+        function animate() {
+          const rect = section.getBoundingClientRect();
+          const centerX = rect.left + rect.width / 2;
+          const centerY = rect.top + rect.height / 2;
+
+          const targetX = ((mouseX - centerX) / rect.width) * -strength;
+          const targetY = ((mouseY - centerY) / rect.height) * -strength;
+
+          currentX += (targetX - currentX) * smoothness;
+          currentY += (targetY - currentY) * smoothness;
+
+          section.style.setProperty("--parallax-x", currentX + "px");
+          section.style.setProperty("--parallax-y", currentY + "px");
+
+          requestAnimationFrame(animate);
+        }
+
+        animate();
+      })();
+
+      // ==================== SCROLL PROGRESS BAR ====================
+      window.addEventListener("scroll", () => {
+        const scrollTop = window.scrollY;
+        const docHeight = document.documentElement.scrollHeight - window.innerHeight;
+        const scrollPercent = (scrollTop / docHeight) * 100;
+        document.querySelector(".scroll-progress-bar").style.width = scrollPercent + "%";
+      });
+
+      // ==================== INTERSECTION OBSERVER FOR ANIMATIONS ====================
+      const observerOptions = {
+        threshold: 0.1,
+        rootMargin: "0px 0px -100px 0px",
+      };
+
+      const observer = new IntersectionObserver((entries) => {
+        entries.forEach((entry) => {
+          if (entry.isIntersecting) {
+            entry.target.classList.add("visible");
+            observer.unobserve(entry.target);
+          }
+        });
+      }, observerOptions);
+
+      // Observe all animated elements
+      document.querySelectorAll(".fade-in-up, .card-hover-3d, .slide-in-right, .box-shadow-glow, .card-fade-in").forEach((el) => {
+        observer.observe(el);
+      });
+
+      // ==================== CARD CLICK NAVIGATION ====================
+      (function () {
+        const cards = document.querySelectorAll(
+          ".main5_admins_div, .main5_supporters_div"
+        );
+
+        cards.forEach((card) => {
+          card.addEventListener("click", function (e) {
+            if (e.target.tagName.toLowerCase() === "a") return;
+            const link = card.querySelector("a[href]");
+            if (link) {
+              window.open(link.href, "_blank");
+            }
+          });
+        });
+      })();
+
+      // ==================== CUSTOM CURSOR ====================
+      (function () {
+        if (window.innerWidth <= 768) return;
+
+        const root = document.documentElement;
+        const normalCursor = 'url("media/Join/cur1.cur") 16 16, auto';
+        const clickCursor = 'url("media/Join/cur2.cur") 16 16, auto';
+
+        function setNormal() {
+          root.style.cursor = normalCursor;
+        }
+
+        function setClick() {
+          root.style.cursor = clickCursor;
+        }
+
+        setNormal();
+
+        document.addEventListener("mousedown", setClick);
+        document.addEventListener("mouseup", setNormal);
+        document.addEventListener("mouseleave", setNormal);
+        document.addEventListener("dragend", setNormal);
+        document.addEventListener("contextmenu", setNormal);
+      })();
+
+      // ==================== LANGUAGE SWITCHER ====================
+      const i18nData = {
+        vi: {
+          arenawar_title: '⚔️ Giải đấu Arena Wars ⚔️',
+          arenawar_subtitle: 'Trận đấu khốc liệt giữa những đội mạnh nhất - Chiến tranh vì vinh quang',
+          arenawar_results_title: 'Kết Quả Đối Đầu',
+          arenawar_victory: 'VICTORY',
+          arenawar_team1_name: 'Firedragon',
+          arenawar_team1_members: 'DeathShadow, Duck, Kido, Fox',
+          arenawar_team2_name: 'KFLG',
+          arenawar_team2_members: 'ZenusHL, KailenMC, KenziMC',
+          arenawar_teams_title: 'Đội Tham Dự',
+          season1_label: 'Season 1 - Kết Quả Quá Khứ',
+          season2_label: 'Season 2 - Sắp Diễn Ra',
+          nav_server: 'Máy chủ',
+          nav_contact: 'Liên hệ',
+          nav_join: 'Tham gia cùng chúng tôi!',
+          features_title: 'Điều chúng tôi có',
+          feature1_title: 'Sinh Tồn Lâu Dài',
+          feature1_desc: 'Thế giới sinh tồn được thiết kế cho hành trình phát triển bền vững.',
+          feature2_title: 'Săn Huyết Tinh',
+          feature2_desc: 'Tiêu diệt quái và boss để thu thập Huyết Tinh giá trị.',
+          feature3_title: 'Bảng Xếp Hạng Tháng',
+          feature3_desc: 'Cạnh tranh sát thương và tiêu diệt để vươn lên top.',
+          feature4_title: 'Tiến Trình Ổn Định',
+          feature4_desc: 'Dữ liệu tài khoản được lưu trữ và bảo mật lâu dài.',
+          feature5_title: 'Chơi Cùng Đồng Đội',
+          feature5_desc: 'Hợp tác cùng bạn bè để sinh tồn và thống trị cuộc săn.',
+          discord_title: 'Tham gia Discord',
+          discord_subtitle: 'Hãy nói chuyện!',
+          discord_desc: '・Gặp những người chơi khác<br />・Đặt câu hỏi<br />・Nhận thông báo về cập nhật<br />・Cơ hội trở thành thành viên chính thức<br /><br />&amp; nhiều hơn nữa',
+          discord_btn: 'Tham gia',
+          admin_team_title: 'Đội Quản Lý',
+          admin_rank_1: '[Quản Lý Chính]',
+          admin_rank_2: '[Quản Lý Phó]',
+          admin1_info: 'Nguyễn Hoàng Dũng<br />Người sáng lập',
+          admin2_info: 'Dương Hà Quỳnh Anh<br />Giám Sát Cộng Đồng',
+          admin3_info: 'Huỳnh Thanh Phong<br />Kiến trúc hệ thống và bảo mật',
+          admin4_info: 'Bùi Duy Trường<br />Vận Hành Máy Chủ',
+          internal_server_title: 'Máy chủ nội bộ',
+          internal_server_name: 'ArenaWar',
+          internal_server_desc: 'Sinh tồn, cướp bóc đến ngày chiến tranh trong đấu trường với những vật phẩm đã có trong quá trình sinh tồn để PvP và tính điểm / kill',
+          internal_server_access: 'Chỉ dành cho thành viên chính thức',
+          season2_title: 'Arena Wars Season 2',
+          season2_countdown: 'Đếm ngược đến khởi động',
+          countdown_days: 'Ngày',
+          countdown_hours: 'Giờ',
+          countdown_minutes: 'Phút',
+          countdown_seconds: 'Giây',
+          team1_name: 'Firedragon',
+          team1_members: 'RAYKY VN, SanKiYa VN, DeathShadow, Duck, Kido, Fox',
+          team2_name: 'KFLG',
+          team2_members: 'ZenusHL, KailenMC, KenziMC (Doomersand), SerenaVN',
+          howtojoin_title: 'Cách tham gia',
+          java_title: 'Java',
+          bedrock_title: 'Bedrock',
+          join_ip: 'IP:',
+          join_version: 'Phiên bản:',
+          join_port: 'Cổng:',
+          footer_credit: 'Được tạo bởi FQQD 2023 - Chỉnh sửa bởi DuKapai 2026'
+        },
+        en: {
+          arenawar_title: '⚔️ Arena Wars Tournament ⚔️',
+          arenawar_subtitle: 'Fierce battles between the strongest teams - War for glory',
+          arenawar_results_title: 'Match Results',
+          arenawar_victory: 'VICTORY',
+          arenawar_team1_name: 'Firedragon',
+          arenawar_team1_members: 'DeathShadow, Duck, Kido, Fox',
+          arenawar_team2_name: 'KFLG',
+          arenawar_team2_members: 'ZenusHL, KailenMC, KenziMC',
+          arenawar_teams_title: 'Participating Teams',
+          season1_label: 'Season 1 - Past Results',
+          season2_label: 'Season 2 - Coming Soon',
+          nav_server: 'Server',
+          nav_contact: 'Contact',
+          nav_join: 'Join us now!',
+          features_title: 'What we have',
+          feature1_title: 'Long-term Survival',
+          feature1_desc: 'A survival world designed for a sustainable development journey.',
+          feature2_title: 'Hunt Blood Essence',
+          feature2_desc: 'Defeat mobs and bosses to collect valuable Blood Essence.',
+          feature3_title: 'Monthly Rankings',
+          feature3_desc: 'Compete in damage and kills to reach the top.',
+          feature4_title: 'Stable Progress',
+          feature4_desc: 'Account data is stored and secured long-term.',
+          feature5_title: 'Play with Your Team',
+          feature5_desc: 'Cooperate with friends to survive and dominate the hunt.',
+          discord_title: 'Join the Discord',
+          discord_subtitle: "Let's talk!",
+          discord_desc: '・Meet other players<br />・Ask questions<br />・Get notified about updates<br />・Opportunity to become an official member<br /><br />&amp; more',
+          discord_btn: 'Join',
+          admin_team_title: 'Administration Team',
+          admin_rank_1: '[Chief Administrator]',
+          admin_rank_2: '[Sub-Administrator]',
+          admin1_info: 'Nguyen Hoang Dung<br />Founder',
+          admin2_info: 'Duong Ha Quynh Anh<br />Community Supervisor',
+          admin3_info: 'Huynh Thanh Phong<br />System Architecture & Security',
+          admin4_info: 'Bui Duy Truong<br />Server Operator',
+          internal_server_title: 'Internal Server',
+          internal_server_name: 'ArenaWar',
+          internal_server_desc: 'Survival, raiding until the day of war in the arena with items from the survival process to PvP and score / kill calculation',
+          internal_server_access: 'Only for official members',
+          season2_title: 'Arena Wars Season 2',
+          season2_countdown: 'Countdown to Launch',
+          countdown_days: 'Days',
+          countdown_hours: 'Hours',
+          countdown_minutes: 'Minutes',
+          countdown_seconds: 'Seconds',
+          team1_name: 'Firedragon',
+          team1_members: 'RAYKY VN, SanKiYa VN, DeathShadow, Duck, Kido, Fox',
+          team2_name: 'KFLG',
+          team2_members: 'ZenusHL, KailenMC, KenziMC (Doomersand), SerenaVN',
+          howtojoin_title: 'How to join',
+          java_title: 'Java',
+          bedrock_title: 'Bedrock',
+          join_ip: 'IP:',
+          join_version: 'Version:',
+          join_port: 'Port:',
+          footer_credit: 'Made by FQQD 2023 - Edited by DuKapai 2026'
+        }
+      };
+
+      let currentLanguage = localStorage.getItem('language') || 'vi';
+
+      function updateLanguage(lang) {
+        currentLanguage = lang;
+        localStorage.setItem('language', lang);
+
+        // Update active button
+        document.querySelectorAll('.lang-btn').forEach(btn => {
+          btn.classList.toggle('active', btn.dataset.lang === lang);
+        });
+
+        // Update all elements with data-i18n attribute
+        document.querySelectorAll('[data-i18n]').forEach(element => {
+          const key = element.getAttribute('data-i18n');
+          if (i18nData[lang] && i18nData[lang][key]) {
+            element.innerHTML = i18nData[lang][key];
+          }
+        });
+
+        // Update document language
+        document.documentElement.lang = lang;
+      }
+
+      // Initialize language on page load
+      updateLanguage(currentLanguage);
+
+      // Add event listeners to language buttons
+      document.querySelectorAll('.lang-btn').forEach(btn => {
+        btn.addEventListener('click', (e) => {
+          e.preventDefault();
+          updateLanguage(btn.dataset.lang);
+        });
+      });
+
+      // ==================== COUNTDOWN TIMER ====================
+      function updateCountdown() {
+        // Target date: June 15, 2026 at 00:00 (midnight)
+        const targetDate = new Date('2026-06-15T00:00:00').getTime();
+        
+        const timer = setInterval(() => {
+          const now = new Date().getTime();
+          const distance = targetDate - now;
+          
+          if (distance < 0) {
+            // Countdown finished
+            document.getElementById('days').textContent = '00';
+            document.getElementById('hours').textContent = '00';
+            document.getElementById('minutes').textContent = '00';
+            document.getElementById('seconds').textContent = '00';
+            clearInterval(timer);
+            return;
+          }
+          
+          // Calculate time units
+          const days = Math.floor(distance / (1000 * 60 * 60 * 24));
+          const hours = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+          const minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
+          const seconds = Math.floor((distance % (1000 * 60)) / 1000);
+          
+          // Update display with leading zeros
+          document.getElementById('days').textContent = String(days).padStart(2, '0');
+          document.getElementById('hours').textContent = String(hours).padStart(2, '0');
+          document.getElementById('minutes').textContent = String(minutes).padStart(2, '0');
+          document.getElementById('seconds').textContent = String(seconds).padStart(2, '0');
+        }, 1000);
+      }
+      
+      // Start countdown when page loads
+      updateCountdown();
+    </script>
+  </body>
+</html>

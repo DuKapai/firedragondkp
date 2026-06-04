@@ -1,0 +1,80 @@
+/* ==================== BLOODMOON FDG ENGAGEMENT SECTION ====================  */
+.bloodmoon_section {
+  width: 100%;
+  max-width: 100%;
+  padding: clamp(2rem, 5vw, 4rem) clamp(0.5rem, 3vw, 2rem);
+  background: linear-gradient(135deg, rgba(2, 219, 2, 0.05), rgba(139, 0, 0, 0.08));
+  border-top: 2px solid rgba(2, 219, 2, 0.15);
+  border-bottom: 2px solid rgba(139, 0, 0, 0.2);
+  position: relative;
+  z-index: 1;
+  box-sizing: border-box;
+  overflow-x: hidden;
+}
+
+.bloodmoon_content {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  max-width: 100%;
+}
+
+.bloodmoon_title {
+  font-size: clamp(2rem, 6vw, 3.5rem);
+  font-weight: 900;
+  background: linear-gradient(135deg, var(--accent1), #00ff00, #ff1744);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  text-align: center;
+  margin: 0 0 1rem 0;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+  animation: fadeInUp 0.8s cubic-bezier(0.2, 0.8, 0.2, 1);
+  word-break: break-word;
+  line-height: 1.2;
+}
+
+.bloodmoon_subtitle {
+  font-size: clamp(0.95rem, 2.5vw, 1.3rem);
+  color: rgba(255, 255, 255, 0.85);
+  text-align: center;
+  margin: 0 0 1.5rem 0;
+  font-weight: 500;
+  max-width: 90vw;
+  word-break: break-word;
+  line-height: 1.5;
+}
+
+.bloodmoon_divider {
+  width: 80px;
+  height: 3px;
+  background: linear-gradient(90deg, transparent, var(--accent1), transparent);
+  border-radius: 2px;
+  margin-top: 1rem;
+  opacity: 0.8;
+  animation: slideInRight 0.6s cubic-bezier(0.2, 0.8, 0.2, 1);
+}
+
+/* Mobile BloodMoon Section */
+@media only screen and (max-width: 600px) {
+  .bloodmoon_section {
+    padding: clamp(1.5rem, 4vw, 2.5rem) clamp(0.25rem, 1vw, 0.5rem);
+  }
+
+  .bloodmoon_title {
+    font-size: clamp(1.6rem, 4vw, 2.5rem);
+    margin-bottom: 0.75rem;
+  }
+
+  .bloodmoon_subtitle {
+    font-size: clamp(0.85rem, 2vw, 1rem);
+    margin-bottom: 1rem;
+  }
+
+  .bloodmoon_divider {
+    margin-top: 0.75rem;
+  }
+}
