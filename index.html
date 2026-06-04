@@ -46,7 +46,7 @@
         >
       </div>
     </nav>
-    <!-- Mobile Navbar with Enhanced Effects -->
+    <!-- Mobile Navbar with Professional Sidebar -->
     <div class="mobile_navbar">
       <a href="#" class="mobile_navbar_logo_img_a"
         ><img
@@ -54,41 +54,113 @@
           src="media/TeamFiredragon-logo.png"
           alt="logo"
       /></a>
-      <div id="mobile_navbar_links" class="mobile-menu">
+      <div id="mobile_navbar_links" class="mobile-sidebar">
+        <!-- Sidebar Header -->
+        <div class="sidebar-header">
+          <h2 class="sidebar-title">Fire Dragon</h2>
+          <p class="sidebar-subtitle">Championship Conference</p>
+        </div>
+
+        <!-- Language Switcher -->
         <div class="language-switcher-mobile" id="langSwitcherMobile">
           <button class="lang-btn active" data-lang="vi" title="Tiếng Việt">VI</button>
           <button class="lang-btn" data-lang="en" title="English">EN</button>
         </div>
-        <a
-          class="mobile_navbar_link mobile-link-item"
-          onclick="mobile_navbar_link_hider()"
-          href="https://www.facebook.com/groups/1008294419676891"
-          >Group Fanpage</a
-        >
-        <a
-          class="mobile_navbar_link mobile-link-item scroll"
-          onclick="mobile_navbar_link_hider()"
-          href="#discord"
-          data-i18n="nav_server"
-          >Máy chủ</a
-        >
-        <a
-          class="mobile_navbar_link mobile-link-item scroll"
-          onclick="mobile_navbar_link_hider()"
-          href="#about"
-          data-i18n="nav_contact"
-          >Liên hệ</a
-        >
-        <a
-          class="mobile_navbar_link mobile-link-item scroll"
-          onclick="mobile_navbar_link_hider()"
-          href="#join"
-          data-i18n="nav_join"
-          >Tham gia cùng chúng tôi!</a
-        >
+
+        <!-- Navigation Items with Icons -->
+        <nav class="sidebar-nav">
+          <a
+            class="sidebar-nav-item scroll"
+            onclick="mobile_navbar_link_hider()"
+            href="#"
+            data-section="home"
+          >
+            <span class="nav-icon">🏠</span>
+            <span class="nav-label" data-i18n="nav_home">Trang chủ</span>
+            <span class="nav-indicator"></span>
+          </a>
+
+          <a
+            class="sidebar-nav-item scroll"
+            onclick="mobile_navbar_link_hider()"
+            href="#more"
+            data-section="features"
+          >
+            <span class="nav-icon">⚡</span>
+            <span class="nav-label" data-i18n="nav_features">Tính năng</span>
+            <span class="nav-indicator"></span>
+          </a>
+
+          <a
+            class="sidebar-nav-item scroll"
+            onclick="mobile_navbar_link_hider()"
+            href="#about"
+            data-section="tournament"
+          >
+            <span class="nav-icon">⚔️</span>
+            <span class="nav-label" data-i18n="nav_tournament">Giải đấu</span>
+            <span class="nav-indicator"></span>
+          </a>
+
+          <a
+            class="sidebar-nav-item scroll"
+            onclick="mobile_navbar_link_hider()"
+            href="#about"
+            data-section="members"
+          >
+            <span class="nav-icon">👥</span>
+            <span class="nav-label" data-i18n="nav_members">Thành viên</span>
+            <span class="nav-indicator"></span>
+          </a>
+
+          <a
+            class="sidebar-nav-item scroll"
+            onclick="mobile_navbar_link_hider()"
+            href="#join"
+            data-section="join"
+          >
+            <span class="nav-icon">🎮</span>
+            <span class="nav-label" data-i18n="nav_join">Tham gia</span>
+            <span class="nav-indicator"></span>
+          </a>
+
+          <a
+            class="sidebar-nav-item scroll"
+            onclick="mobile_navbar_link_hider()"
+            href="#discord"
+            data-section="discord"
+          >
+            <span class="nav-icon">💬</span>
+            <span class="nav-label" data-i18n="nav_discord">Discord</span>
+            <span class="nav-indicator"></span>
+          </a>
+        </nav>
+
+        <!-- Secondary Links -->
+        <div class="sidebar-secondary">
+          <a
+            class="sidebar-secondary-link"
+            onclick="mobile_navbar_link_hider()"
+            href="https://www.facebook.com/groups/1008294419676891"
+            target="_blank"
+          >
+            <i class="fa fa-facebook"></i>
+            <span data-i18n="nav_fanpage">Group Fanpage</span>
+          </a>
+        </div>
+
+        <!-- CTA Button -->
+        <button class="sidebar-cta-btn scroll" onclick="mobile_navbar_link_hider()" data-href="#join">
+          <span class="btn-icon">⚡</span>
+          <span class="btn-text" data-i18n="nav_join_now">Tham gia BloodMoon!</span>
+        </button>
       </div>
+
+      <!-- Hamburger Menu Icon -->
       <div class="icon hamburger-menu" onclick="mobile_navbar_link_hider()">
-        <i class="fa fa-bars"></i>
+        <span class="hamburger-line hamburger-line-1"></span>
+        <span class="hamburger-line hamburger-line-2"></span>
+        <span class="hamburger-line hamburger-line-3"></span>
       </div>
     </div>
     <div class="mainflex">
@@ -518,16 +590,52 @@
       // ==================== MOBILE NAVBAR TOGGLE ====================
       function mobile_navbar_link_hider() {
         const x = document.getElementById("mobile_navbar_links");
-        const icon = document.querySelector(".hamburger-menu i");
+        const hamburgerMenu = document.querySelector(".hamburger-menu");
         
         if (x.style.display === "flex") {
           x.style.display = "none";
-          icon.classList.remove("active");
+          hamburgerMenu.classList.remove("active");
         } else {
           x.style.display = "flex";
-          icon.classList.add("active");
+          hamburgerMenu.classList.add("active");
         }
       }
+
+      // ==================== MOBILE SIDEBAR NAVIGATION ACTIVE STATE ====================
+      document.querySelectorAll(".sidebar-nav-item").forEach((item) => {
+        item.addEventListener("click", function () {
+          // Remove active from all items
+          document.querySelectorAll(".sidebar-nav-item").forEach((link) => {
+            link.style.backgroundColor = "";
+            link.style.borderLeftColor = "transparent";
+            link.style.color = "rgba(255, 255, 255, 0.85)";
+          });
+
+          // Add active to clicked item
+          this.style.backgroundColor = "rgba(2, 219, 2, 0.2)";
+          this.style.borderLeftColor = "var(--accent1)";
+          this.style.color = "var(--accent1)";
+        });
+      });
+
+      // ==================== CTA BUTTON HANDLER ====================
+      document.querySelectorAll(".sidebar-cta-btn").forEach((btn) => {
+        btn.addEventListener("click", function () {
+          const href = this.getAttribute("data-href");
+          if (href) {
+            const target = document.querySelector(href);
+            if (target) {
+              mobile_navbar_link_hider(); // Close sidebar
+              setTimeout(() => {
+                window.scrollTo({
+                  top: target.offsetTop,
+                  behavior: "smooth",
+                });
+              }, 300);
+            }
+          }
+        });
+      });
 
       // ==================== SMOOTH SCROLL ====================
       const scrollLinks = document.querySelectorAll(".scroll");
