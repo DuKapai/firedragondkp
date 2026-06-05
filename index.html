@@ -57,7 +57,7 @@
       <div id="mobile_navbar_links" class="mobile-sidebar">
         <!-- Sidebar Header -->
         <div class="sidebar-header">
-          <h2 class="sidebar-title">Fire Dragon</h2>
+          <h2 class="sidebar-title">Drikapex Group</h2>
           <p class="sidebar-subtitle">Championship Conference</p>
         </div>
 
@@ -75,7 +75,6 @@
             href="#"
             data-section="home"
           >
-            <span class="nav-icon">🏠</span>
             <span class="nav-label" data-i18n="nav_home">Trang chủ</span>
             <span class="nav-indicator"></span>
           </a>
@@ -86,7 +85,6 @@
             href="#more"
             data-section="features"
           >
-            <span class="nav-icon">⚡</span>
             <span class="nav-label" data-i18n="nav_features">Tính năng</span>
             <span class="nav-indicator"></span>
           </a>
@@ -97,19 +95,7 @@
             href="#about"
             data-section="tournament"
           >
-            <span class="nav-icon">⚔️</span>
             <span class="nav-label" data-i18n="nav_tournament">Giải đấu</span>
-            <span class="nav-indicator"></span>
-          </a>
-
-          <a
-            class="sidebar-nav-item scroll"
-            onclick="mobile_navbar_link_hider()"
-            href="#about"
-            data-section="members"
-          >
-            <span class="nav-icon">👥</span>
-            <span class="nav-label" data-i18n="nav_members">Thành viên</span>
             <span class="nav-indicator"></span>
           </a>
 
@@ -119,7 +105,6 @@
             href="#join"
             data-section="join"
           >
-            <span class="nav-icon">🎮</span>
             <span class="nav-label" data-i18n="nav_join">Tham gia</span>
             <span class="nav-indicator"></span>
           </a>
@@ -130,7 +115,6 @@
             href="#discord"
             data-section="discord"
           >
-            <span class="nav-icon">💬</span>
             <span class="nav-label" data-i18n="nav_discord">Discord</span>
             <span class="nav-indicator"></span>
           </a>
@@ -151,7 +135,6 @@
 
         <!-- CTA Button -->
         <button class="sidebar-cta-btn scroll" onclick="mobile_navbar_link_hider()" data-href="#join">
-          <span class="btn-icon">⚡</span>
           <span class="btn-text" data-i18n="nav_join_now">Tham gia BloodMoon!</span>
         </button>
       </div>
@@ -299,127 +282,136 @@
       <!-- INTERNAL SERVER & ARENA WARS Section -->
       <div class="main6">
         <a class="headline fade-in-up" data-i18n="internal_server_title">Máy chủ nội bộ</a>
-        <div class="main6_server_div">
-          <div class="main6_server_card">
-            <div class="main6_server_name" data-i18n="internal_server_name">ArenaWar</div>
-            <div class="main6_server_icon">⚔️</div>
-            <p class="main6_server_description" data-i18n="internal_server_desc">Sinh tồn, cướp bóc đến ngày chiến tranh trong đấu trường với những vật phẩm đã có trong quá trình sinh tồn để PvP và tính điểm / kill</p>
-            <div class="main6_server_access" data-i18n="internal_server_access">Chỉ dành cho thành viên chính thức</div>
-          </div>
-        </div>
-
-        <!-- ARENA WARS - Consolidated Section -->
+    
+        <!-- ARENA WARS - Professional Pagination Section -->
         <div class="arenawar_section">
           
           <!-- Arena Wars Header -->
           <div class="arenawar_header">
             <h2 class="arenawar_title" data-i18n="arenawar_title">⚔️ Arena Wars Tournament ⚔️</h2>
-            <p class="arenawar_subtitle" data-i18n="arenawar_subtitle">Trận đấu khốc liệt giữa những đội mạnh nhất - Chiên tranh vì vinh quang</p>
+            <p class="arenawar_subtitle" data-i18n="arenawar_subtitle">Sinh tồn, cướp bóc đến ngày chiến tranh trong đấu trường với những vật phẩm đã có trong quá trình sinh tồn để PvP và tính điểm / kill</p>
+            <div class="arenawar_access_badge">
+              <i class="fa fa-lock"></i>
+              <span data-i18n="internal_server_access">Chỉ dành cho thành viên chính thức</span>
+            </div>
           </div>
 
-          <!-- Season 1: Past Results with Video -->
-          <div class="arenawar_season arenawar_season_1">
-            <div class="arenawar_season_label season_1_label" data-i18n="season1_label">Season 1 - Past Results</div>
+          <!-- Pagination Tabs Navigation -->
+          <div class="arenawar_pagination_tabs">
+            <button class="arenawar_tab_btn active" data-tab="season-1" onclick="switchArenaTourTab(event)">
+              <span class="tab-label" data-i18n="season1_label">Season 1 - Kết Quả</span>
+              <span class="tab-indicator"></span>
+            </button>
+            <button class="arenawar_tab_btn" data-tab="season-2" onclick="switchArenaTourTab(event)">
+              <span class="tab-label" data-i18n="season2_label">Season 2 - Sắp Tới</span>
+              <span class="tab-indicator"></span>
+            </button>
+          </div>
+
+          <!-- Tab Content Container -->
+          <div class="arenawar_tab_content_wrapper">
             
-            <div class="arenawar_season_content">
-              <div class="arenawar_video_container">
-                <div class="arenawar_video_wrapper">
-                  <iframe 
-                    class="arenawar_video_embed"
-                    src="https://www.youtube.com/embed/xyK5ZAIcY0c?autoplay=0&rel=0" 
-                    frameborder="0" 
-                    allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" 
-                    allowfullscreen>
-                  </iframe>
-                </div>
-              </div>
-
-              <div class="arenawar_results_container">
-                <h3 class="arenawar_results_title" data-i18n="arenawar_results_title">Kết Quả Đối Đầu</h3>
-                
-                <!-- VS Badge in the middle -->
-                <div class="arenawar_vs_badge">
-                  <div class="arenawar_vs_trophy">🏆</div>
-                </div>
-
-                <!-- Teams Container with separate divs -->
-                <div class="arenawar_results_wrapper">
-                  <!-- Team 1 - Loser -->
-                  <div class="arenawar_team_result arenawar_team_loser">
-                    <div class="result_status result_loser_badge" data-i18n="match_loser">Thua</div>
-                    <img class="arenawar_team_logo" src="media/Team1.jpg" alt="Team Firedragon" />
-                    <div class="arenawar_team_info">
-                      <div class="arenawar_team_name" data-i18n="arenawar_team1_name">Firedragon</div>
-                      <div class="arenawar_team_members" data-i18n="arenawar_team1_members">DeathShadow, Duck, Kido, Fox</div>
-                    </div>
+            <!-- Season 1: Past Results with Video -->
+            <div class="arenawar_tab_content active" id="season-1">
+              <div class="arenawar_content_inner">
+                <div class="arenawar_video_container">
+                  <div class="arenawar_video_wrapper">
+                    <iframe 
+                      class="arenawar_video_embed"
+                      src="https://www.youtube.com/embed/xyK5ZAIcY0c?autoplay=0&rel=0" 
+                      frameborder="0" 
+                      allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" 
+                      allowfullscreen>
+                    </iframe>
                   </div>
+                </div>
+
+                <div class="arenawar_results_container">
+                  <h3 class="arenawar_results_title" data-i18n="arenawar_results_title">Kết Quả Đối Đầu</h3>
                   
-                  <!-- Team 2 - Winner -->
-                  <div class="arenawar_team_result arenawar_team_winner">
-                    <div class="result_status result_winner_badge" data-i18n="match_winner">Chiến Thắng</div>
-                    <img class="arenawar_team_logo" src="media/KFLG.jpg" alt="Team KFLG" />
-                    <div class="arenawar_team_info">
-                      <div class="arenawar_team_name" data-i18n="arenawar_team2_name">KFLG</div>
-                      <div class="arenawar_team_members" data-i18n="arenawar_team2_members">ZenusHL, KailenMC, KenziMC</div>
+                  <!-- VS Badge in the middle -->
+                  <div class="arenawar_vs_badge">
+                    <div class="arenawar_vs_trophy">🏆</div>
+                  </div>
+
+                  <!-- Teams Container with professional styling -->
+                  <div class="arenawar_results_wrapper">
+                    <!-- Team 1 - Loser -->
+                    <div class="arenawar_team_result arenawar_team_loser">
+                      <div class="result_status result_loser_badge" data-i18n="match_loser">Thua</div>
+                      <img class="arenawar_team_logo" src="media/Team1.jpg" alt="Team Firedragon" />
+                      <div class="arenawar_team_info">
+                        <div class="arenawar_team_name" data-i18n="arenawar_team1_name">Firedragon</div>
+                        <div class="arenawar_team_members" data-i18n="arenawar_team1_members">DeathShadow, Duck, Kido, Fox</div>
+                      </div>
+                    </div>
+                    
+                    <!-- Team 2 - Winner -->
+                    <div class="arenawar_team_result arenawar_team_winner">
+                      <div class="result_status result_winner_badge" data-i18n="match_winner">Chiến Thắng</div>
+                      <img class="arenawar_team_logo" src="media/KFLG.jpg" alt="Team KFLG" />
+                      <div class="arenawar_team_info">
+                        <div class="arenawar_team_name" data-i18n="arenawar_team2_name">KFLG</div>
+                        <div class="arenawar_team_members" data-i18n="arenawar_team2_members">ZenusHL, KailenMC, KenziMC</div>
+                      </div>
                     </div>
                   </div>
                 </div>
               </div>
             </div>
-          </div>
 
-          <!-- Divider -->
-          <div class="arenawar_divider"></div>
-
-          <!-- Season 2: Upcoming Event with Countdown -->
-          <div class="arenawar_season arenawar_season_2">
-            <div class="arenawar_season_label season_2_label" data-i18n="season2_label">Season 2 - Sắp Diễn Ra</div>
-            
-            <div class="arenawar_season_content">
-              <!-- Countdown Timer -->
-              <div class="arenawar_countdown_section">
-                <div class="arenawar_countdown_title" data-i18n="season2_countdown">Đếm ngược đến khởi động</div>
-                <div class="arenawar_countdown_timer">
-                  <div class="arenawar_countdown_item">
-                    <div class="arenawar_countdown_number" id="days">00</div>
-                    <div class="arenawar_countdown_unit" data-i18n="countdown_days">Ngày</div>
+            <!-- Season 2: Upcoming Event with Countdown -->
+            <div class="arenawar_tab_content" id="season-2">
+              <div class="arenawar_content_inner">
+                <!-- Countdown Timer Section -->
+                <div class="arenawar_countdown_section">
+                  <div class="arenawar_countdown_title" data-i18n="season2_countdown">Đếm ngược đến khởi động</div>
+                  <div class="arenawar_countdown_timer" id="countdownTimer">
+                    <div class="arenawar_countdown_item">
+                      <div class="arenawar_countdown_number" id="days">00</div>
+                      <div class="arenawar_countdown_unit" data-i18n="countdown_days">Ngày</div>
+                    </div>
+                    <div class="arenawar_countdown_separator">:</div>
+                    <div class="arenawar_countdown_item">
+                      <div class="arenawar_countdown_number" id="hours">00</div>
+                      <div class="arenawar_countdown_unit" data-i18n="countdown_hours">Giờ</div>
+                    </div>
+                    <div class="arenawar_countdown_separator">:</div>
+                    <div class="arenawar_countdown_item">
+                      <div class="arenawar_countdown_number" id="minutes">00</div>
+                      <div class="arenawar_countdown_unit" data-i18n="countdown_minutes">Phút</div>
+                    </div>
+                    <div class="arenawar_countdown_separator">:</div>
+                    <div class="arenawar_countdown_item">
+                      <div class="arenawar_countdown_number" id="seconds">00</div>
+                      <div class="arenawar_countdown_unit" data-i18n="countdown_seconds">Giây</div>
+                    </div>
                   </div>
-                  <div class="arenawar_countdown_separator">:</div>
-                  <div class="arenawar_countdown_item">
-                    <div class="arenawar_countdown_number" id="hours">00</div>
-                    <div class="arenawar_countdown_unit" data-i18n="countdown_hours">Giờ</div>
-                  </div>
-                  <div class="arenawar_countdown_separator">:</div>
-                  <div class="arenawar_countdown_item">
-                    <div class="arenawar_countdown_number" id="minutes">00</div>
-                    <div class="arenawar_countdown_unit" data-i18n="countdown_minutes">Phút</div>
-                  </div>
-                  <div class="arenawar_countdown_separator">:</div>
-                  <div class="arenawar_countdown_item">
-                    <div class="arenawar_countdown_number" id="seconds">00</div>
-                    <div class="arenawar_countdown_unit" data-i18n="countdown_seconds">Giây</div>
-                  </div>
+                  <a href="#discord" class="countdown_finished_btn scroll" id="countdownFinishedBtn" style="display: none;">
+                    <span data-i18n="discord_btn">Join Discord Now!</span>
+                  </a>
                 </div>
-              </div>
 
-              <!-- Teams Section -->
-              <div class="arenawar_teams_section">
-                <h3 class="arenawar_teams_title" data-i18n="arenawar_teams_title">Đội Tham Dự</h3>
-                <div class="arenawar_teams_grid">
-                  <div class="arenawar_team_card arenawar_team_card_1">
-                    <img class="arenawar_team_logo_large" src="media/Team1.jpg" alt="Team Firedragon" />
-                    <div class="arenawar_team_card_name" data-i18n="team1_name">Firedragon</div>
-                    <div class="arenawar_team_card_members" data-i18n="team1_members">RAYKY VN, SanKiYa VN, DeathShadow, Duck, Kido, Fox</div>
-                  </div>
+                <!-- Teams Section -->
+                <div class="arenawar_teams_section">
+                  <h3 class="arenawar_teams_title" data-i18n="arenawar_teams_title">Đội Tham Dự</h3>
+                  <div class="arenawar_teams_grid">
+                    <div class="arenawar_team_card arenawar_team_card_1">
+                      <img class="arenawar_team_logo_large" src="media/Team1.jpg" alt="Team Firedragon" />
+                      <div class="arenawar_team_card_name" data-i18n="team1_name">Firedragon</div>
+                      <div class="arenawar_team_card_members" data-i18n="team1_members">RAYKY VN, SanKiYa VN, DeathShadow, Duck, Kido, Fox</div>
+                    </div>
 
-                  <div class="arenawar_team_card arenawar_team_card_2">
-                    <img class="arenawar_team_logo_large" src="media/KFLG.jpg" alt="Team KFLG" />
-                    <div class="arenawar_team_card_name" data-i18n="team2_name">KFLG</div>
-                    <div class="arenawar_team_card_members" data-i18n="team2_members">ZenusHL, KailenMC, KenziMC, SerenaVN, CubaduMC</div>
+                    <div class="arenawar_team_card arenawar_team_card_2">
+                      <img class="arenawar_team_logo_large" src="media/KFLG.jpg" alt="Team KFLG" />
+                      <div class="arenawar_team_card_name" data-i18n="team2_name">KFLG</div>
+                      <div class="arenawar_team_card_members" data-i18n="team2_members">ZenusHL, KailenMC, KenziMC, SerenaVN, CubaduMC</div>
+                    </div>
                   </div>
                 </div>
               </div>
             </div>
+
           </div>
         </div>
       </div>
@@ -598,6 +590,30 @@
         } else {
           x.style.display = "flex";
           hamburgerMenu.classList.add("active");
+        }
+      }
+
+      // ==================== ARENA WARS TAB SWITCHER ====================
+      function switchArenaTourTab(event) {
+        const tabBtn = event.target.closest('.arenawar_tab_btn');
+        if (!tabBtn) return;
+
+        const tabName = tabBtn.getAttribute('data-tab');
+        const wrapper = document.querySelector('.arenawar_tab_content_wrapper');
+        
+        // Remove active class from all buttons and contents
+        document.querySelectorAll('.arenawar_tab_btn').forEach(btn => {
+          btn.classList.remove('active');
+        });
+        document.querySelectorAll('.arenawar_tab_content').forEach(content => {
+          content.classList.remove('active');
+        });
+
+        // Add active class to clicked button and corresponding content
+        tabBtn.classList.add('active');
+        const targetContent = document.getElementById(tabName);
+        if (targetContent) {
+          targetContent.classList.add('active');
         }
       }
 
@@ -784,6 +800,12 @@
           arenawar_teams_title: 'Đội Tham Dự',
           season1_label: 'Season 1 - Kết Quả Quá Khứ',
           season2_label: 'Season 2 - Sắp Diễn Ra',
+          nav_home: 'Trang chủ',
+          nav_features: 'Tính năng',
+          nav_tournament: 'Giải đấu',
+          nav_discord: 'Discord',
+          nav_fanpage: 'Nhóm cộng đồng',
+          nav_join_now: 'Tham gia BloodMoon!',
           nav_server: 'Máy chủ',
           nav_contact: 'Liên hệ',
           nav_join: 'Tham gia cùng chúng tôi!',
@@ -829,7 +851,9 @@
           join_ip: 'IP:',
           join_version: 'Phiên bản:',
           join_port: 'Cổng:',
-          footer_credit: 'Được tạo bởi FQQD 2023 - Chỉnh sửa bởi DuKapai 2026'
+          footer_credit: 'Được tạo bởi FQQD 2023 - Chỉnh sửa bởi DuKapai 2026',
+          match_loser: 'Thua',
+          match_winner: 'Chiến Thắng'
         },
         en: {
           arenawar_title: '⚔️ Arena Wars Tournament ⚔️',
@@ -843,6 +867,12 @@
           arenawar_teams_title: 'Participating Teams',
           season1_label: 'Season 1 - Past Results',
           season2_label: 'Season 2 - Coming Soon',
+          nav_home: 'Home',
+          nav_features: 'Features',
+          nav_tournament: 'Tournament',
+          nav_discord: 'Discord',
+          nav_fanpage: 'Group Fanpage',
+          nav_join_now: 'Join BloodMoon!',
           nav_server: 'Server',
           nav_contact: 'Contact',
           nav_join: 'Join us now!',
@@ -888,7 +918,9 @@
           join_ip: 'IP:',
           join_version: 'Version:',
           join_port: 'Port:',
-          footer_credit: 'Made by FQQD 2023 - Edited by DuKapai 2026'
+          footer_credit: 'Made by FQQD 2023 - Edited by DuKapai 2026',
+          match_loser: 'Lost',
+          match_winner: 'Victory'
         }
       };
 
@@ -941,6 +973,8 @@
             document.getElementById('hours').textContent = '00';
             document.getElementById('minutes').textContent = '00';
             document.getElementById('seconds').textContent = '00';
+            document.getElementById('countdownTimer').style.display = 'none';
+            document.getElementById('countdownFinishedBtn').style.display = 'flex';
             clearInterval(timer);
             return;
           }

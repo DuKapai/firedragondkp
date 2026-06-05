@@ -394,6 +394,32 @@
   text-align: center;
 }
 
+.countdown_finished_btn {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 1rem 2rem;
+  background: linear-gradient(135deg, rgba(2, 219, 2, 0.9), rgba(0, 180, 0, 0.8));
+  border: 2px solid #02db02;
+  border-radius: 1rem;
+  color: #000;
+  font-size: clamp(1rem, 2.5vw, 1.3rem);
+  font-weight: 800;
+  text-decoration: none;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  cursor: pointer;
+  transition: all 0.3s cubic-bezier(0.2, 0.8, 0.2, 1);
+  box-shadow: 0 0 30px rgba(2, 219, 2, 0.5);
+  animation: slideInUp 0.6s ease;
+}
+
+.countdown_finished_btn:hover {
+  background: linear-gradient(135deg, #02db02, #05b305);
+  transform: scale(1.05) translateY(-2px);
+  box-shadow: 0 0 50px rgba(2, 219, 2, 0.8);
+}
+
 .arenawar_countdown_title {
   font-size: 1.1rem;
   color: rgba(255, 255, 255, 0.8);
@@ -669,5 +695,178 @@
   .arenawar_vs_text {
     font-size: 0.9rem;
     padding: 0.6rem 1rem;
+  }
+}
+
+/* ==================== ARENA WARS PAGINATION TABS ====================  */
+.arenawar_pagination_tabs {
+  display: flex;
+  width: 100%;
+  max-width: 600px;
+  margin: 0 auto 2.5rem;
+  gap: 0.5rem;
+  border-bottom: 2px solid rgba(2, 219, 2, 0.2);
+  justify-content: center;
+  flex-wrap: wrap;
+  box-sizing: border-box;
+  padding: 0 clamp(0.5rem, 2vw, 1rem);
+}
+
+.arenawar_tab_btn {
+  position: relative;
+  padding: clamp(0.8rem, 2vw, 1.2rem) clamp(1rem, 3vw, 1.8rem);
+  background: transparent;
+  border: none;
+  color: rgba(255, 255, 255, 0.7);
+  font-size: clamp(0.9rem, 2vw, 1.1rem);
+  font-weight: 700;
+  cursor: pointer;
+  transition: all 0.3s cubic-bezier(0.2, 0.8, 0.2, 1);
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+  font-family: "Space Grotesk", sans-serif;
+  border-radius: 0.5rem 0.5rem 0 0;
+  overflow: hidden;
+  min-height: 48px;
+}
+
+.arenawar_tab_btn::before {
+  content: "";
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  height: 3px;
+  background: linear-gradient(90deg, transparent, var(--accent1), transparent);
+  transform: scaleX(0);
+  transition: transform 0.3s cubic-bezier(0.2, 0.8, 0.2, 1);
+  transform-origin: left;
+}
+
+.arenawar_tab_btn:hover {
+  color: rgba(255, 255, 255, 0.9);
+  background: rgba(2, 219, 2, 0.08);
+}
+
+.arenawar_tab_btn:hover::before {
+  transform: scaleX(1);
+}
+
+.arenawar_tab_btn.active {
+  color: var(--accent1);
+  background: rgba(2, 219, 2, 0.15);
+  box-shadow: 0 -4px 12px rgba(2, 219, 2, 0.2);
+}
+
+.arenawar_tab_btn.active::before {
+  transform: scaleX(1);
+}
+
+.tab-indicator {
+  display: inline-block;
+  width: 6px;
+  height: 6px;
+  border-radius: 50%;
+  background: var(--accent1);
+  margin-left: 0.4rem;
+  opacity: 0;
+  transition: opacity 0.3s ease;
+}
+
+.arenawar_tab_btn.active .tab-indicator {
+  opacity: 1;
+  animation: pulse 1.5s ease-in-out infinite;
+}
+
+.arenawar_access_badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.6rem;
+  padding: 0.6rem 1.2rem;
+  background: linear-gradient(135deg, rgba(255, 100, 0, 0.15), rgba(255, 69, 0, 0.08));
+  border: 1px solid rgba(255, 100, 0, 0.3);
+  border-radius: 0.6rem;
+  color: rgba(255, 100, 0, 0.9);
+  font-size: 0.85rem;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+  margin-top: 1rem;
+  animation: fadeInUp 0.6s ease 0.2s both;
+}
+
+.arenawar_access_badge i {
+  font-size: 0.9rem;
+}
+
+.arenawar_tab_content_wrapper {
+  width: 100%;
+  position: relative;
+  overflow: hidden;
+}
+
+.arenawar_tab_content {
+  display: none;
+  opacity: 0;
+  animation: fadeInUp 0.4s cubic-bezier(0.2, 0.8, 0.2, 1) forwards;
+}
+
+.arenawar_tab_content.active {
+  display: block;
+  opacity: 1;
+}
+
+.arenawar_content_inner {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: clamp(1.5rem, 3vw, 2.5rem);
+  width: 100%;
+  max-width: 100%;
+  align-items: center;
+  animation: fadeInUp 0.5s cubic-bezier(0.2, 0.8, 0.2, 1);
+}
+
+@media (max-width: 1024px) {
+  .arenawar_content_inner {
+    grid-template-columns: 1fr;
+    gap: 2rem;
+  }
+}
+
+@media (max-width: 768px) {
+  .arenawar_pagination_tabs {
+    gap: 0.25rem;
+    margin-bottom: 2rem;
+  }
+
+  .arenawar_tab_btn {
+    padding: 0.7rem clamp(0.8rem, 2vw, 1.2rem);
+    font-size: 0.9rem;
+  }
+
+  .tab-label {
+    display: inline;
+  }
+}
+
+@media (max-width: 600px) {
+  .arenawar_pagination_tabs {
+    gap: 0.25rem;
+    margin-bottom: 1.5rem;
+  }
+
+  .arenawar_tab_btn {
+    padding: 0.6rem 0.8rem;
+    font-size: 0.8rem;
+    min-height: auto;
+  }
+
+  .tab-indicator {
+    display: none;
+  }
+
+  .arenawar_content_inner {
+    grid-template-columns: 1fr;
+    gap: 1.5rem;
   }
 }
