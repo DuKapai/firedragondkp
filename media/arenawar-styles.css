@@ -712,9 +712,14 @@
   padding: 0 clamp(0.5rem, 2vw, 1rem);
 }
 
+/* Ensure tab buttons keep consistent sizing and wrap text nicely for VN/EN */
+.arenawar_pagination_tabs {
+  align-items: stretch;
+}
+
 .arenawar_tab_btn {
   position: relative;
-  padding: clamp(0.8rem, 2vw, 1.2rem) clamp(1rem, 3vw, 1.8rem);
+  padding: clamp(0.6rem, 1.6vw, 1rem) clamp(0.8rem, 2.5vw, 1.2rem);
   background: transparent;
   border: none;
   color: rgba(255, 255, 255, 0.7);
@@ -727,7 +732,12 @@
   font-family: "Space Grotesk", sans-serif;
   border-radius: 0.5rem 0.5rem 0 0;
   overflow: hidden;
-  min-height: 48px;
+  min-height: 56px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex: 1 1 0;
+  box-sizing: border-box;
 }
 
 .arenawar_tab_btn::before {
@@ -773,6 +783,15 @@
   transition: opacity 0.3s ease;
 }
 
+/* ensure the label text can wrap and stays centered */
+.tab-label {
+  display: block;
+  text-align: center;
+  white-space: normal;
+  word-break: break-word;
+  line-height: 1.1;
+}
+
 .arenawar_tab_btn.active .tab-indicator {
   opacity: 1;
   animation: pulse 1.5s ease-in-out infinite;
@@ -803,6 +822,11 @@
   width: 100%;
   position: relative;
   overflow: hidden;
+}
+
+/* Prevent content height jumps when switching languages */
+.arenawar_tab_content_wrapper {
+  min-height: clamp(16rem, 35vh, 28rem);
 }
 
 .arenawar_tab_content {
@@ -845,7 +869,7 @@
   }
 
   .tab-label {
-    display: inline;
+    display: block;
   }
 }
 
@@ -858,7 +882,7 @@
   .arenawar_tab_btn {
     padding: 0.6rem 0.8rem;
     font-size: 0.8rem;
-    min-height: auto;
+    min-height: 48px;
   }
 
   .tab-indicator {
