@@ -1,10 +1,10 @@
 <!doctype html>
-<html lang="en">
+<html lang="vi">
   <head>
     <meta charset="UTF-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Drikapex Server Minecraft</title>
+    <title>Drikapex | Cộng đồng Minecraft &amp; Cơ hội phát triển</title>
     <link rel="icon" type="image/png" href="media/TeamFiredragon.jpg" />
     <link rel="stylesheet" href="media/style.css" />
     <link rel="stylesheet" href="media/arenawar-styles.css" />
@@ -23,7 +23,7 @@
     <div class="scroll-progress-bar"></div>
     <!-- Desktop Navbar with Enhanced Effects -->
     <nav class="desktop_navbar">
-      <a href="#" class="navbar-logo-wrapper"
+      <a href="#" class="navbar-logo-wrapper page-nav-item" data-page-index="0" aria-label="Trang tổng quan"
         ><img
           class="desktop_navbar_logo_img"
           src="media/TeamFiredragon-logo.png"
@@ -34,23 +34,24 @@
         class="desktop_navbar_link nav-link-enhanced"
         target="_blank"
         rel="noopener noreferrer"
-        >Group Fanpage</a
+        data-i18n="nav_fanpage">Nhóm cộng đồng</a
       >
-      <a href="#lobby-system" class="desktop_navbar_link nav-link-enhanced scroll" data-i18n="nav_start">Bắt đầu</a>
-      <a href="#discord" class="desktop_navbar_link nav-link-enhanced scroll" data-i18n="nav_server">Máy chủ</a>
-      <a href="#about" class="desktop_navbar_link nav-link-enhanced scroll" data-i18n="nav_contact">Liên hệ</a>
+      <a href="#" class="desktop_navbar_link nav-link-enhanced page-nav-item active" data-page-index="0" data-i18n="nav_overview">Tổng quan</a>
+      <a href="#" class="desktop_navbar_link nav-link-enhanced page-nav-item" data-page-index="1" data-i18n="nav_bloodmoon">Bloodmoon</a>
+      <a href="#" class="desktop_navbar_link nav-link-enhanced page-nav-item" data-page-index="2" data-i18n="nav_arena_war">Arena war</a>
+      <a href="#" class="desktop_navbar_link nav-link-enhanced page-nav-item" data-page-index="3" data-i18n="nav_community_join">Liên hệ &amp; tham gia</a>
       <div class="language-switcher-desktop" id="langSwitcherDesktop">
         <button class="lang-btn active" data-lang="vi" title="Tiếng Việt">VI</button>
         <span class="lang-separator">|</span>
         <button class="lang-btn" data-lang="en" title="English">EN</button>
       </div>
       <div class="desktop_navbar_link2_div nav-button-enhanced">
-        <a href="#join" class="desktop_navbar_link2 scroll" data-i18n="nav_join_now">Tham gia BloodMoon!</a>
+        <a href="https://discord.gg/pSt9VFgZ" class="desktop_navbar_link2" target="_blank" rel="noopener noreferrer" data-i18n="nav_join_now">Vào Discord</a>
       </div>
     </nav>
     <!-- Mobile Navbar with Professional Sidebar -->
     <div class="mobile_navbar">
-      <a href="#" class="mobile_navbar_logo_img_a"
+      <a href="#" class="mobile_navbar_logo_img_a page-nav-item" data-page-index="0" aria-label="Trang tổng quan"
         ><img
           class="mobile_navbar_logo_img"
           src="media/TeamFiredragon-logo.png"
@@ -59,8 +60,8 @@
       <div id="mobile_navbar_links" class="mobile-sidebar">
         <!-- Sidebar Header -->
         <div class="sidebar-header">
-          <h2 class="sidebar-title">Drikapex Group</h2>
-          <p class="sidebar-subtitle">Championship Conference</p>
+          <h2 class="sidebar-title" data-i18n="sidebar_title">Cộng đồng Drikapex</h2>
+          <p class="sidebar-subtitle" data-i18n="sidebar_subtitle">Giao lưu, hợp tác và phát triển cùng tổ chức Drikapex</p>
         </div>
 
         <!-- Language Switcher -->
@@ -72,32 +73,42 @@
         <!-- Navigation Items with Icons -->
         <nav class="sidebar-nav">
           <a
-            class="sidebar-nav-item scroll"
-            onclick="mobile_navbar_link_hider()"
-            href="#lobby-system"
-            data-section="start"
+            class="sidebar-nav-item page-nav-item active"
+            href="#"
+            data-page-index="0"
+            data-section="overview"
           >
-            <span class="nav-label" data-i18n="nav_start">Bắt đầu</span>
+            <span class="nav-label" data-i18n="nav_overview">Tổng quan</span>
             <span class="nav-indicator"></span>
           </a>
 
           <a
-            class="sidebar-nav-item scroll"
-            onclick="mobile_navbar_link_hider()"
-            href="#discord"
-            data-section="server"
+            class="sidebar-nav-item page-nav-item"
+            href="#"
+            data-page-index="1"
+            data-section="bloodmoon"
           >
-            <span class="nav-label" data-i18n="nav_server">Máy chủ</span>
+            <span class="nav-label" data-i18n="nav_bloodmoon">Bloodmoon</span>
             <span class="nav-indicator"></span>
           </a>
 
           <a
-            class="sidebar-nav-item scroll"
-            onclick="mobile_navbar_link_hider()"
-            href="#about"
-            data-section="contact"
+            class="sidebar-nav-item page-nav-item"
+            href="#"
+            data-page-index="2"
+            data-section="arena"
           >
-            <span class="nav-label" data-i18n="nav_contact">Liên hệ</span>
+            <span class="nav-label" data-i18n="nav_arena_war">Arena war</span>
+            <span class="nav-indicator"></span>
+          </a>
+
+          <a
+            class="sidebar-nav-item page-nav-item"
+            href="#"
+            data-page-index="3"
+            data-section="community-join"
+          >
+            <span class="nav-label" data-i18n="nav_community_join">Liên hệ &amp; tham gia</span>
             <span class="nav-indicator"></span>
           </a>
 
@@ -115,17 +126,23 @@
         </nav>
 
         <!-- CTA Button -->
-        <button class="sidebar-cta-btn scroll" onclick="mobile_navbar_link_hider()" data-href="#join">
-          <span class="btn-text" data-i18n="nav_join_now">Tham gia Drikapex!</span>
+        <button class="sidebar-cta-btn" type="button" data-href="https://discord.gg/pSt9VFgZ">
+          <span class="btn-text" data-i18n="nav_join_now">Tham gia Discord</span>
         </button>
       </div>
 
-      <!-- Hamburger Menu Icon -->
-      <div class="icon hamburger-menu" onclick="mobile_navbar_link_hider()">
+      <button
+        class="hamburger-menu"
+        type="button"
+        aria-label="Mở menu điều hướng"
+        aria-controls="mobile_navbar_links"
+        aria-expanded="false"
+        onclick="mobile_navbar_link_hider()"
+      >
         <span class="hamburger-line hamburger-line-1"></span>
         <span class="hamburger-line hamburger-line-2"></span>
         <span class="hamburger-line hamburger-line-3"></span>
-      </div>
+      </button>
     </div>
     <div class="mainflex">
       <!-- HERO Section with Enhanced Animations -->
@@ -137,6 +154,7 @@
           <span>Minecraft,</span><br />
           <a class="main1_actcent">always done better</a><a>.</a>
         </div>
+        <p class="main1_game_pitch" data-i18n="game_pitch">Giao lưu, đóng góp để có cơ hội vào nội bộ Drikapex. Cùng tổ chức vận hành hệ thống, nhận thù lao theo nhiệm vụ và phát triển nghề tay trái có thu nhập ngoài game.</p>
         <div class="main1_ipcopier_div" style="animation-delay: 0.3s">
           <button class="main1_ipcopier" onclick="copyText()" type="button">
             <span class="main1_ipcopier_text1">comingsoon.asia</span>
@@ -146,7 +164,7 @@
           <!-- Tooltip for copy feedback -->
           <div class="copy-tooltip" id="copyTooltip" data-i18n="copy_success">Copied!</div>
         </div>
-        <a href="#more" class="scroll">
+        <a href="#" class="page-nav-item" data-page-index="1">
           <img
             alt="downarrow"
             class="main1_downarrow"
@@ -603,18 +621,15 @@
       <!-- LEADERSHIP Section with Cards -->
       <div class="main5">
         <div class="main5_admin_div">
-          <div class="main5_admins_div main5_admins_dev_type1">
+          <div class="main5_admins_div main5_admins_dev_type1" data-open-contact-card role="button" tabindex="0" aria-haspopup="dialog" aria-controls="dipaxContactCard">
             <img class="main5_admins_img" src="media/DuKapai.jpg" alt="Dipax" />
             <div class="main5_admins_description_div">
               <a class="main5_admins_description_rank main5_admins_description_rank_admin" data-i18n="admin_rank_1"
                 >[Chief Administrator]
               </a>
-              <a
-                class="main5_admins_description_title"
-                href="https://www.facebook.com/dipaxes15/"
-              >
+              <span class="main5_admins_description_title dipax-card-trigger">
                 Dipax
-              </a>
+              </span>
               <a class="main5_admins_description" data-i18n="admin1_info">
                 Nguyen Hoang Dung<br />
                 Founder & Lead Administrator
@@ -629,85 +644,82 @@
           <div class="main5_supporters_div">
             <img
               class="main5_supporters_img"
-              src="media/Panda.png"
-              data-facebook-avatar-url="https://scontent.fhan5-8.fna.fbcdn.net/v/t39.30808-1/670493603_1759869641690637_3571646659629932911_n.jpg?stp=dst-jpg_tt6&cstp=mx1933x1926&ctp=s200x200&_nc_cat=105&_nc_map=urlgen_bucketless&ccb=1-7&_nc_sid=e99d92&_nc_ohc=-uaWVDvd4R8Q7kNvwGX8IYt&_nc_oc=AdqqJ9cxLr80cDm9EyVrpAnpUthzE39moeKEnw0wkYaMtDFveN7VxLnTx3t2l3ABUIM&_nc_zt=24&_nc_ht=scontent.fhan5-8.fna&_nc_gid=35_TxJQbErZRQ-DHFmdwgQ&_nc_ss=7b2a8&oh=00_AQJtromDxEFYrFaGkDfL7mxHNShWXcPWUlppOo5TM2ir5Q&oe=6AB56A4C"
+              src="media/Panda-facebook.jpg"
               alt="Panda"
             />
-            <div class="main5_supporters_description_div">
-              <a
-                class="main5_supporters_description_rank main5_supporters_description_rank_supporter" data-i18n="admin_rank_2"
-              >
-                [Sub-Administrator]
-              </a>
-              <a
-                class="main5_supporters_description_title"
-                href="https://www.facebook.com/duongha.anh.353/"
-                target="_blank"
-                rel="noopener noreferrer"
-              >
-                Panda
-              </a>
-              <a class="main5_supporters_description" data-i18n="admin2_info">
-                Duong Ha Quynh Anh<br />
-                Thư ký · Community Supervisor
-              </a>
-            </div>
+              <div class="main5_supporters_description_div">
+                <a
+                  class="main5_supporters_description_rank main5_supporters_description_rank_supporter" data-i18n="admin_rank_2"
+                >
+                  [Sub-Administrator]
+                </a>
+                <a
+                  class="main5_supporters_description_title"
+                  href="https://www.facebook.com/duongha.anh.353/"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                >
+                  Panda
+                </a>
+                <a class="main5_supporters_description" data-i18n="admin2_info">
+                  Duong Ha Quynh Anh<br />
+                  Thư ký · Community Supervisor
+                </a>
+              </div>
           </div>
 
           <div class="main5_supporters_div">
             <img
               class="main5_supporters_img"
-              src="media/PH.png"
-              data-facebook-avatar-url="https://scontent.fhan5-8.fna.fbcdn.net/v/t39.30808-1/784251116_1078968244709960_1420143845659160399_n.jpg?stp=dst-jpg_tt6&cstp=mx1254x1254&ctp=s200x200&_nc_cat=103&_nc_map=urlgen_bucketless&ccb=1-7&_nc_sid=e99d92&_nc_ohc=uf0rK8v-xQ0Q7kNvwEMBAqh&_nc_oc=AdpLkHYYuRYhTPKg7VozzRkBdVANYLfyJ-qpSgXRm3wbRbj7caUUpXTcqq-bfaz1CVo&_nc_zt=24&_nc_ht=scontent.fhan5-8.fna&_nc_gid=YyamgxYkktRFyoBdJEY6hQ&_nc_ss=7b2a8&oh=00_AQJQwIQZiy2c-7-DNUFo3BisEo6uzWT3AJLLKASeMGiH5w&oe=6AB593FA"
+              src="media/RAYKY-facebook.jpg"
               alt="Rayky"
             />
-            <div class="main5_supporters_description_div">
-              <a
-                class="main5_supporters_description_rank main5_supporters_description_rank_supporter" data-i18n="admin_rank_2"
-              >
-                [Sub-Administrator]
-              </a>
-              <a
-                class="main5_supporters_description_title"
-                href="https://www.facebook.com/phonghuynh031226"
-                target="_blank"
-                rel="noopener noreferrer"
-              >
-                RAYKY VN
-              </a>
-              <a class="main5_supporters_description" data-i18n="admin3_info">
-                Huynh Thanh Phong<br />
-                Technical &amp; Bảo mật
-              </a>
-            </div>
+              <div class="main5_supporters_description_div">
+                <a
+                  class="main5_supporters_description_rank main5_supporters_description_rank_supporter" data-i18n="admin_rank_2"
+                >
+                  [Sub-Administrator]
+                </a>
+                <a
+                  class="main5_supporters_description_title"
+                  href="https://www.facebook.com/phonghuynh031226"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                >
+                  RAYKY VN
+                </a>
+                <a class="main5_supporters_description" data-i18n="admin3_info">
+                  Huynh Thanh Phong<br />
+                  Technical &amp; Bảo mật
+                </a>
+              </div>
           </div>
 
           <div class="main5_supporters_div">
             <img
               class="main5_supporters_img"
-              src="media/SanKiYa.png"
-              data-facebook-avatar-url="https://scontent.fhan3-4.fna.fbcdn.net/v/t39.30808-6/573859543_122098711107101941_6096084686646990636_n.jpg?stp=dst-jpg_tt6&cstp=mx2009x2015&ctp=s2009x2015&_nc_cat=104&ccb=1-7&_nc_sid=6ee11a&_nc_ohc=RK592pQYj8EQ7kNvwFek9hF&_nc_oc=Adr70v3eI8-um7wtsxQJhPnhQpylfwP1gbEUuJoUToRy4iN4-D6EJT5NQeXivv-xLrA&_nc_zt=23&_nc_ht=scontent.fhan3-4.fna&_nc_gid=94beunUdXk1ZnnDUtTbweQ&_nc_ss=7b289&oh=00_AQKT1ZzPTeArpm9fgw_9mfyZb1HjLBLIgeVItv1mm-Q0xg&oe=6AB56FAF"
+              src="media/DuyTruong-facebook.jpg"
               alt="Duy Trường"
             />
-            <div class="main5_supporters_description_div">
-              <a
-                class="main5_supporters_description_rank main5_supporters_description_rank_supporter" data-i18n="admin_rank_2"
-              >
-                [Sub-Administrator]
-              </a>
-              <a
-                class="main5_supporters_description_title"
-                href="https://www.facebook.com/profile.php?id=61583058249473"
-                target="_blank"
-                rel="noopener noreferrer"
-              >
-                Zane Sakura
-              </a>
-              <a class="main5_supporters_description" data-i18n="admin4_info">
-                Bui Duy Truong<br/>
-                Thiết kế và Kiến trúc hệ thống
-              </a>
-            </div>
+              <div class="main5_supporters_description_div">
+                <a
+                  class="main5_supporters_description_rank main5_supporters_description_rank_supporter" data-i18n="admin_rank_2"
+                >
+                  [Sub-Administrator]
+                </a>
+                <a
+                  class="main5_supporters_description_title"
+                  href="https://www.facebook.com/bui.duy.truong.917715"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                >
+                  Zane Sakura
+                </a>
+                <a class="main5_supporters_description" data-i18n="admin4_info">
+                  Bui Duy Truong<br/>
+                  Thiết kế và Kiến trúc hệ thống
+                </a>
+              </div>
           </div>
         </div>
       </div>
@@ -716,8 +728,9 @@
       <!-- HOW TO JOIN Section with Animated Boxes -->
       <div class="main3">
         <a class="headline fade-in-up" data-i18n="howtojoin_title">How to join</a>
+        <p class="join_status" data-i18n="join_status">Địa chỉ kết nối hiện được công bố là comingsoon.asia. Hãy kiểm tra Discord để xem thông báo mở máy chủ và hướng dẫn mới nhất.</p>
         <div class="main3_join_div_div">
-          <div class="main3_join_div" style="animation-delay: 0.1s">
+            <div class="main3_join_div" style="animation-delay: 0.1s">
             <a class="main3_join_title" data-i18n="java_title">Java</a>
             <div class="main3_join_content_div">
               <div class="main3_join_row">
@@ -752,6 +765,21 @@
       >
     </footer>
 
+    <dialog class="contact-card-dialog" id="dipaxContactCard" aria-labelledby="dipaxContactName">
+      <article class="contact-card">
+        <button class="contact-card-close" type="button" data-close-contact-card data-i18n="contact_card_close" autofocus>Đóng</button>
+        <div class="contact-card-details">
+          <p class="contact-card-eyebrow" data-i18n="contact_card_eyebrow">DANH THIẾP LIÊN HỆ</p>
+          <h2 id="dipaxContactName">Dipax</h2>
+          <p class="contact-card-role" data-i18n="admin1_info">Nguyễn Hoàng Dũng<br />Người sáng lập &amp; Quản lý dự án</p>
+          <div class="contact-card-zalo">
+            <span data-i18n="contact_card_scan">Quét mã bằng Zalo để liên hệ công việc</span>
+            <img class="contact-card-qr" src="media/Zalo.jpg" alt="Mã QR Zalo để liên hệ với Dipax" />
+          </div>
+        </div>
+      </article>
+    </dialog>
+
     <script>
       // ==================== COPY TEXT FUNCTION ====================
       function copyText() {
@@ -777,17 +805,21 @@
       }
 
       // ==================== MOBILE NAVBAR TOGGLE ====================
-      function mobile_navbar_link_hider() {
-        const x = document.getElementById("mobile_navbar_links");
+      function setMobileNavbarOpen(isOpen) {
+        const menu = document.getElementById("mobile_navbar_links");
         const hamburgerMenu = document.querySelector(".hamburger-menu");
-        
-        if (x.style.display === "flex") {
-          x.style.display = "none";
-          hamburgerMenu.classList.remove("active");
-        } else {
-          x.style.display = "flex";
-          hamburgerMenu.classList.add("active");
-        }
+
+        if (!menu || !hamburgerMenu) return;
+
+        menu.style.display = isOpen ? "flex" : "none";
+        menu.classList.toggle("is-open", isOpen);
+        hamburgerMenu.classList.toggle("active", isOpen);
+        hamburgerMenu.setAttribute("aria-expanded", String(isOpen));
+      }
+
+      function mobile_navbar_link_hider() {
+        const menu = document.getElementById("mobile_navbar_links");
+        setMobileNavbarOpen(menu?.style.display !== "flex");
       }
 
       function switchArenaTourTab(event) {
@@ -849,14 +881,99 @@
         });
       });
 
+      // ==================== HORIZONTAL PAGE NAVIGATION ====================
+      function setupPageNavigation() {
+        const mainFlex = document.querySelector('.mainflex');
+        if (!mainFlex || mainFlex.classList.contains('page-slider-ready')) return;
+
+        const pageGroups = [
+          { key: 'overview', items: [document.querySelector('.main1'), document.querySelector('.lobby_system_section')] },
+          { key: 'bloodmoon', items: [document.querySelector('.main2')] },
+          { key: 'arena', items: [document.querySelector('.main6')] },
+          { key: 'community-join', items: [document.querySelector('.main4'), document.querySelector('.main5'), document.querySelector('.main3')] }
+        ];
+
+        const pageSlider = document.createElement('div');
+        pageSlider.className = 'page-slider';
+        pageSlider.style.setProperty('--page-count', pageGroups.length);
+        const pageHeightObserver = new ResizeObserver(() => {
+          const activePanel = pageSlider.querySelector('.page-panel.is-active');
+          if (activePanel) pageSlider.style.height = `${activePanel.offsetHeight}px`;
+        });
+
+        pageGroups.forEach((group) => {
+          const panel = document.createElement('section');
+          panel.className = `page-panel page-${group.key}`;
+          group.items.forEach((item) => {
+            if (item) panel.appendChild(item);
+          });
+          pageSlider.appendChild(panel);
+          pageHeightObserver.observe(panel);
+        });
+
+        mainFlex.innerHTML = '';
+        mainFlex.appendChild(pageSlider);
+        mainFlex.classList.add('page-slider-ready');
+      }
+
+      function setActivePage(index) {
+        const track = document.querySelector('.page-slider');
+        const pageButtons = document.querySelectorAll('.page-nav-item');
+        if (!track) return;
+
+        const pageCount = track.children.length;
+        const safeIndex = Math.max(0, Math.min(index, pageCount - 1));
+        track.style.transform = `translateX(-${(safeIndex * 100) / pageCount}%)`;
+        if (track.parentElement) track.parentElement.scrollLeft = 0;
+        window.scrollTo({ top: 0, left: 0, behavior: 'instant' });
+
+        Array.from(track.children).forEach((panel, panelIndex) => {
+          panel.classList.toggle('is-active', panelIndex === safeIndex);
+        });
+        track.style.height = `${track.children[safeIndex].offsetHeight}px`;
+
+        pageButtons.forEach((button) => {
+          const btnIndex = Number(button.getAttribute('data-page-index'));
+          button.classList.toggle('active', btnIndex === safeIndex);
+        });
+      }
+
+      function attachPageNavigation() {
+        const pageButtons = document.querySelectorAll('.page-nav-item');
+        pageButtons.forEach((button) => {
+          button.addEventListener('click', (event) => {
+            event.preventDefault();
+            const pageIndex = Number(button.getAttribute('data-page-index'));
+            setActivePage(pageIndex);
+            setMobileNavbarOpen(false);
+          });
+        });
+      }
+
+      setupPageNavigation();
+      attachPageNavigation();
+      setActivePage(0);
+
       // ==================== CTA BUTTON HANDLER ====================
       document.querySelectorAll(".sidebar-cta-btn").forEach((btn) => {
         btn.addEventListener("click", function () {
+          const pageIndex = this.getAttribute("data-page-index");
+          if (pageIndex !== null && pageIndex !== undefined) {
+            setActivePage(Number(pageIndex));
+            setMobileNavbarOpen(false);
+            return;
+          }
+
           const href = this.getAttribute("data-href");
           if (href) {
+            if (/^https?:\/\//i.test(href)) {
+              window.open(href, "_blank", "noopener,noreferrer");
+              setMobileNavbarOpen(false);
+              return;
+            }
             const target = document.querySelector(href);
             if (target) {
-              mobile_navbar_link_hider(); // Close sidebar
+              setMobileNavbarOpen(false);
               setTimeout(() => {
                 window.scrollTo({
                   top: target.offsetTop,
@@ -976,6 +1093,39 @@
         });
       })();
 
+      // ==================== DIPAX CONTACT CARD ====================
+      const dipaxContactCard = document.getElementById('dipaxContactCard');
+      const dipaxContactTrigger = document.querySelector('[data-open-contact-card]');
+      dipaxContactTrigger?.addEventListener('click', () => {
+        dipaxContactCard?.showModal();
+      });
+
+      dipaxContactTrigger?.addEventListener('keydown', (event) => {
+        if (event.key === 'Enter' || event.key === ' ') {
+          event.preventDefault();
+          dipaxContactCard?.showModal();
+        }
+      });
+
+      dipaxContactCard?.querySelector('[data-close-contact-card]')?.addEventListener('click', () => {
+        dipaxContactCard.close();
+      });
+
+      dipaxContactCard?.addEventListener('click', (event) => {
+        if (event.target === dipaxContactCard) dipaxContactCard.close();
+      });
+
+      dipaxContactCard?.addEventListener('cancel', () => {
+        dipaxContactCard.close();
+      });
+
+      document.addEventListener('keydown', (event) => {
+        if (event.key === 'Escape' && dipaxContactCard?.open) {
+          event.preventDefault();
+          dipaxContactCard.close();
+        }
+      });
+
       // ==================== CUSTOM CURSOR ====================
       (function () {
         if (window.innerWidth <= 768) return;
@@ -1020,9 +1170,10 @@
       // ==================== LANGUAGE SWITCHER ====================
       const i18nData = {
         vi: {
+          page_title: 'Drikapex | Cộng đồng Minecraft & Cơ hội phát triển',
           arenawar_title: '⚔️ Giải đấu Arena Wars ⚔️',
-          arenawar_subtitle: 'Trận đấu khốc liệt giữa những đội mạnh nhất - Chiến tranh vì vinh quang',
-          arenawar_purpose: 'Arena Wars là sự kiện thường niên do Drikapex tổ chức mỗi năm một lần, nhằm tạo sân chơi cạnh tranh, tăng nhận diện cộng đồng và kết nối những người muốn trở thành thành viên nội bộ.',
+          arenawar_subtitle: 'Sinh tồn và cướp bóc để chuẩn bị cho ngày chiến tranh; dùng trang bị thu thập được để PvP và ghi điểm theo số mạng.',
+          arenawar_purpose: 'Arena Wars là sự kiện thường niên của Drikapex, quy tụ cộng đồng trong một mùa giải cạnh tranh và mở cơ hội tham gia đội ngũ nội bộ.',
           arenawar_results_title: 'Kết Quả Đối Đầu',
           arenawar_victory: 'VICTORY',
           arenawar_team1_name: 'Firedragon',
@@ -1035,11 +1186,12 @@
           season3_label: 'Season 3 - Sắp Tới',
           nav_home: 'Trang chủ',
           nav_features: 'Tính năng',
-          nav_start: 'Bắt đầu',
-          nav_tournament: 'Giải đấu',
-          nav_discord: 'Discord',
+          nav_overview: 'Tổng quan',
+          nav_bloodmoon: 'Bloodmoon',
+          nav_arena_war: 'Arena Wars',
+          nav_community_join: 'Liên hệ &amp; tham gia',
           nav_fanpage: 'Nhóm cộng đồng',
-          nav_join_now: 'Tham gia cùng chúng tôi!',
+          nav_join_now: 'Vào Discord',
           nav_server: 'Máy chủ',
           nav_contact: 'Liên hệ',
           /* UNUSED: No element currently uses data-i18n="features_title".
@@ -1055,7 +1207,11 @@
           feature4_desc: 'Dữ liệu tài khoản được lưu trữ và bảo mật lâu dài.',
           feature5_title: 'Chơi Cùng Đồng Đội',
           feature5_desc: 'Hợp tác cùng bạn bè để sinh tồn và thống trị cuộc săn.',
-          discord_subtitle: 'Hãy nói chuyện!',
+          game_pitch: 'Giao lưu, đóng góp để có cơ hội vào nội bộ Drikapex. Cùng tổ chức vận hành hệ thống, nhận thù lao theo nhiệm vụ và phát triển nghề tay trái có thu nhập ngoài game.',
+          sidebar_title: 'Cộng đồng Drikapex',
+          sidebar_subtitle: 'Giao lưu, đóng góp và hướng tới thành viên nội bộ',
+          discord_title: 'Kết nối cộng đồng trên Discord',
+          discord_subtitle: 'Cùng trò chuyện!',
           bloodmoon_subtitle: 'Chế độ game đặc biệt chỉ có tại FDG',
           start_tab: 'BẮT ĐẦU NGAY',
           start_eyebrow: 'HƯỚNG DẪN NHANH',
@@ -1071,7 +1227,7 @@
           start_spawn_label: 'BẮT ĐẦU',
           start_spawn_desc: 'Đây là nơi bạn xuất hiện khi vào server và làm quen với thế giới.',
           start_gacha_title: 'Gacha',
-          start_gacha_label: 'NHẬN QUÀ',
+          start_gacha_label: 'NHẬN THƯỞNG',
           start_gacha_desc: 'Thử vận may để nhận vật phẩm hỗ trợ hành trình sinh tồn.',
           start_castle_title: 'Lâu đài Bóng Tối',
           start_castle_label: 'THỬ THÁCH',
@@ -1085,11 +1241,15 @@
           start_leaderboard_title: 'Bảng thành tích',
           start_leaderboard_label: 'CẠNH TRANH',
           start_leaderboard_desc: 'Theo dõi thứ hạng và đặt mục tiêu cho những thành tích tiếp theo.',
-          discord_desc: '・Gặp những người chơi khác<br />・Đặt câu hỏi<br />・Nhận thông báo về cập nhật<br />・Cơ hội trở thành thành viên chính thức<br /><br />&amp; nhiều hơn nữa',
-          discord_btn: 'Tham gia Discord',
+          discord_desc: '・Gặp gỡ người chơi khác<br />・Đặt câu hỏi và nhận hỗ trợ<br />・Cập nhật tin tức máy chủ<br />・Tìm hiểu cơ hội tham gia đội ngũ nội bộ<br /><br />Và nhiều hoạt động cộng đồng khác.',
+          discord_btn: 'Vào máy chủ Discord',
+          join_status: 'Địa chỉ kết nối được công bố là comingsoon.asia. Hãy kiểm tra Discord để xem thông báo mở máy chủ và hướng dẫn mới nhất.',
           copy_instruction: 'Nhấn để sao chép',
           copy_success: 'Đã sao chép!',
           admin_team_title: 'Đội Quản Lý',
+          contact_card_eyebrow: 'DANH THIẾP LIÊN HỆ',
+          contact_card_scan: 'Quét mã bằng Zalo để liên hệ công việc',
+          contact_card_close: 'Đóng',
           admin_rank_1: '[Quản Lý Chính]',
           admin_rank_2: '[Quản Lý Phó]',
           admin1_info: 'Nguyễn Hoàng Dũng<br />Người sáng lập &amp; Quản lý dự án',
@@ -1098,13 +1258,13 @@
           admin4_info: 'Bùi Duy Trường<br />Thiết kế &amp; Kiến trúc hệ thống',
           internal_server_title: 'Máy chủ nội bộ',
           internal_server_name: 'ArenaWar',
-          internal_server_desc: 'Sinh tồn, cướp bóc đến ngày chiến tranh trong đấu trường với những vật phẩm đã có trong quá trình sinh tồn để PvP và tính điểm / kill',
+          internal_server_desc: 'Sinh tồn và cướp bóc để chuẩn bị cho ngày chiến tranh; dùng trang bị thu thập được để PvP và ghi điểm theo số mạng.',
           internal_server_access: 'Chỉ dành cho thành viên chính thức trong nội bộ máy chủ Discord',
           season2_title: 'Arena Wars Season 2',
           season2_countdown: 'Trạng thái mùa giải',
           season2_status: 'Đây là mùa chạy thử. Hệ thống đang được đánh giá và kết quả thi đấu chưa được xác định chính thức.',
           season3_countdown: 'Đếm ngược đến Season 3',
-          season3_status: 'Season 3 sắp diễn ra ~ Đặc biệt hơn là dành cả cho Thành viên ngoại viện, tham gia máy chủ Discord để đăng ký ngay!',
+          season3_status: 'Season 3 dự kiến mở đăng ký cho cả Guest Interaction Member (thành viên ngoại viện). Theo dõi Discord để xem điều kiện và thời gian đăng ký.',
           countdown_days: 'Ngày',
           countdown_hours: 'Giờ',
           countdown_minutes: 'Phút',
@@ -1119,25 +1279,25 @@
           season3_team4_name: 'Blue Team',
           season3_team_members: 'Chưa có thành viên đăng ký',
           season3_team1_effect: 'Hiệu ứng gốc: Thiêu đốt',
-          season3_team1_role: 'Gây sát thương cầu rỉa',
+          season3_team1_role: 'Gây sát thương tầm xa',
           season3_team2_effect: 'Hiệu ứng gốc: Yếu đuối',
           season3_team2_role: 'Làm suy yếu sát thương',
-          season3_team3_effect: 'Hiệu ứng gốc: Choáng',
+          season3_team3_effect: 'Hiệu ứng gốc: Buồn nôn',
           season3_team3_role: 'Gây mất phương hướng',
           season3_team4_effect: 'Hiệu ứng gốc: Làm chậm',
           season3_team4_role: 'Làm chậm di chuyển',
           season3_flip_hint: 'Chạm để xem thuộc tính',
           season3_phases_title: 'Cấu trúc gameplay Season 3',
           season3_phase1_title: 'Giai đoạn 1 - Sinh tồn',
-          season3_phase1_desc: '4 Team được phân chia vào 4 khu vực riêng; thu thập tài nguyên, xây dựng căn cứ và chế tạo trang bị trước chiến tranh.',
+          season3_phase1_desc: 'Bốn đội được phân vào bốn khu vực riêng để thu thập tài nguyên, xây dựng căn cứ và chế tạo trang bị trước chiến tranh.',
           season3_phase2_title: 'Giai đoạn 2 - 07 ngày',
-          season3_phase2_desc: 'Thời gian sinh tồn và phát triển giới hạn 07 ngày, hạn chế khám phá và tài nguyên mới.',
+          season3_phase2_desc: 'Thời gian sinh tồn và phát triển giới hạn trong 7 ngày; việc khám phá và tiếp cận tài nguyên mới bị giới hạn.',
           season3_phase3_title: 'Giai đoạn 3 - Countdown',
-          season3_phase3_desc: 'Kết thúc 07 ngày, hệ thống kích hoạt Countdown; khi kết thúc sẽ mở Block tăng hình và kết nối 4 khu vực.',
+          season3_phase3_desc: 'Sau 7 ngày, hệ thống bắt đầu đếm ngược. Khi kết thúc, các lối kết nối mở ra giữa cả bốn khu vực.',
           season3_phase4_title: 'Giai đoạn 4 - Arena War',
-          season3_phase4_desc: 'Các Team được phép giao chiến ở đồ hardcore, sử dụng trang bị, sức mạnh và thuộc tính Team để chiến đấu.',
+          season3_phase4_desc: 'Các đội giao chiến bằng trang bị thu thập được, sức mạnh và thuộc tính riêng của đội.',
           season3_phase5_title: 'Giai đoạn 5 - Kết thúc',
-          season3_phase5_desc: 'Công bố kết quả và nhận phần quà trị quá 500.000 VNĐ của Drikapex dành cho đội chiến thắng.',
+          season3_phase5_desc: 'Kết quả được công bố và đội chiến thắng nhận phần thưởng trị giá hơn 500.000 VNĐ từ Drikapex.',
           howtojoin_title: 'Cách tham gia',
           java_title: 'Java',
           bedrock_title: 'Bedrock',
@@ -1149,9 +1309,10 @@
           match_winner: 'Chiến Thắng'
         },
         en: {
+          page_title: 'Drikapex | Minecraft Community & Growth',
           arenawar_title: '⚔️ Arena Wars Tournament ⚔️',
-          arenawar_subtitle: 'Fierce battles between the strongest teams - War for glory',
-          arenawar_purpose: 'Arena Wars is an annual Drikapex event held once a year to create a competitive community experience, strengthen brand awareness, and connect with people interested in becoming internal members.',
+          arenawar_subtitle: 'Survive and raid to prepare for war; bring the gear you collect into PvP and score by kills.',
+          arenawar_purpose: 'Arena Wars is Drikapex’s annual competitive event, bringing the community together and offering a path to join the internal team.',
           arenawar_results_title: 'Match Results',
           arenawar_victory: 'VICTORY',
           arenawar_team1_name: 'Firedragon',
@@ -1164,11 +1325,12 @@
           season3_label: 'Season 3 - Upcoming',
           nav_home: 'Home',
           nav_features: 'Features',
-          nav_start: 'Start here',
-          nav_tournament: 'Tournament',
-          nav_discord: 'Discord',
+          nav_overview: 'Overview',
+          nav_bloodmoon: 'Bloodmoon',
+          nav_arena_war: 'Arena Wars',
+          nav_community_join: 'Contact &amp; Join',
           nav_fanpage: 'Group Fanpage',
-          nav_join_now: 'Join Us!',
+          nav_join_now: 'Open Discord',
           nav_server: 'Server',
           nav_contact: 'Contact',
           /* UNUSED: No element currently uses data-i18n="features_title".
@@ -1184,6 +1346,10 @@
           feature4_desc: 'Account data is stored and secured long-term.',
           feature5_title: 'Play with Your Team',
           feature5_desc: 'Cooperate with friends to survive and dominate the hunt.',
+          game_pitch: 'Connect and contribute for a chance to join Drikapex internally. Help operate our systems, earn compensation for assigned work, and build side income beyond the game.',
+          sidebar_title: 'Drikapex Community',
+          sidebar_subtitle: 'Connect, contribute, and work toward internal membership',
+          discord_title: 'Join the Drikapex community',
           discord_subtitle: "Let's talk!",
           bloodmoon_subtitle: 'Special game mode for FDG only',
           start_tab: 'START HERE',
@@ -1215,10 +1381,14 @@
           start_leaderboard_label: 'COMPETE',
           start_leaderboard_desc: 'Track your rank and set goals for your next achievements.',
           discord_desc: '・Meet other players<br />・Ask questions<br />・Get notified about updates<br />・Opportunity to become an official member<br /><br />&amp; more',
-          discord_btn: 'Join Discord',
+          discord_btn: 'Open Discord',
+          join_status: 'The published connection address is comingsoon.asia. Check Discord for launch announcements and the latest connection instructions.',
           copy_instruction: 'Click to copy',
           copy_success: 'Copied!',
           admin_team_title: 'Administration Team',
+          contact_card_eyebrow: 'CONTACT CARD',
+          contact_card_scan: 'Scan with Zalo to get in touch for work',
+          contact_card_close: 'Close',
           admin_rank_1: '[Chief Administrator]',
           admin_rank_2: '[Sub-Administrator]',
           admin1_info: 'Nguyen Hoang Dung<br />Founder &amp; Project Manager',
@@ -1227,13 +1397,13 @@
           admin4_info: 'Bui Duy Truong<br />Design &amp; System Architecture',
           internal_server_title: 'Internal Server',
           internal_server_name: 'ArenaWar',
-          internal_server_desc: 'Survival, raiding until the day of war in the arena with items from the survival process to PvP and score / kill calculation',
+          internal_server_desc: 'Survive and raid to prepare for war; bring the gear you collect into PvP and score by kills.',
           internal_server_access: 'Only for official members internal Discord server',
           season2_title: 'Arena Wars Season 2',
           season2_countdown: 'Season status',
           season2_status: 'This is a test season. The system is under evaluation and competitive results have not been officially determined.',
           season3_countdown: 'Countdown to Season 3',
-          season3_status: 'Season 3 is coming soon ~ Especially for Guest Interaction Member, join the Discord server to register now!',
+          season3_status: 'Season 3 is expected to open registration to Guest Interaction Members as well. Follow Discord for eligibility and registration dates.',
           countdown_days: 'Days',
           countdown_hours: 'Hours',
           countdown_minutes: 'Minutes',
@@ -1282,6 +1452,7 @@
       let currentLanguage = localStorage.getItem('language') || 'vi';
 
       function updateLanguage(lang) {
+        if (!i18nData[lang]) return;
         currentLanguage = lang;
         localStorage.setItem('language', lang);
 
@@ -1300,6 +1471,7 @@
 
         // Update document language
         document.documentElement.lang = lang;
+        document.title = i18nData[lang].page_title;
       }
 
       // Initialize language on page load
