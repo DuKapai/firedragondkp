@@ -3689,7 +3689,7 @@ html {
   grid-template-columns: repeat(2, minmax(0, 1fr));
   align-items: stretch;
   gap: clamp(0.75rem, 2vw, 1.5rem);
-  width: min(100%, 66rem);
+  width: min(100%, 84rem);
   margin: 0 auto;
 }
 
@@ -3720,6 +3720,12 @@ html {
 .main5_supporter_div {
   min-width: 0;
   max-width: 100%;
+}
+
+.main5_admin_div,
+.main5_supporter_div {
+  width: min(100%, 84rem);
+  margin-inline: auto;
 }
 
 .fade-in-up,
@@ -4257,9 +4263,9 @@ html body .main5_supporters_div {
   }
 
   .main5_supporter_div {
-    width: min(100%, 80rem);
+    width: min(100%, 100rem);
     grid-template-columns: repeat(3, minmax(0, 1fr));
-    gap: 1.25rem;
+    gap: clamp(1.25rem, 2vw, 2rem);
     margin-inline: auto;
     padding-inline: 0;
   }
@@ -4743,6 +4749,28 @@ iframe {
 
   .main1_downarrow {
     padding: 0.6rem;
+  }
+}
+
+@media (min-width: 769px) {
+  .main3 {
+    min-height: clamp(38rem, 72vh, 46rem);
+    padding-block: clamp(3rem, 6vh, 4.5rem);
+  }
+
+  .main3_join_div {
+    min-height: 12rem;
+    justify-content: center;
+    padding: clamp(1.1rem, 1.6vw, 1.5rem);
+  }
+
+  .main3_join_content_div {
+    gap: 0.35rem;
+    padding: 0.85rem 1rem;
+  }
+
+  .main3_join_row {
+    padding-block: 0.45rem;
   }
 }
 
