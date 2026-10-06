@@ -394,6 +394,166 @@
   text-align: center;
 }
 
+.arenawar_registration_dialog {
+  width: min(620px, calc(100% - 2rem));
+  max-width: 620px;
+  max-height: 90vh;
+  margin: auto;
+  padding: clamp(1.25rem, 3vw, 2rem);
+  box-sizing: border-box;
+  overflow-y: auto;
+  border: 1px solid rgba(2, 219, 2, 0.45);
+  border-radius: 1rem;
+  background: linear-gradient(145deg, #1e232d, #141923);
+  color: #fff;
+  box-shadow: 0 24px 80px rgba(0, 0, 0, 0.65);
+}
+
+.arenawar_registration_dialog::backdrop {
+  background: rgba(0, 0, 0, 0.72);
+  backdrop-filter: blur(4px);
+}
+
+.arenawar_registration_dialog_header {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 1rem;
+}
+
+.arenawar_registration_dialog_header .arenawar_teams_title {
+  flex: 1;
+}
+
+.arenawar_registration_close {
+  flex: 0 0 auto;
+  width: 2.5rem;
+  height: 2.5rem;
+  border: 1px solid rgba(255, 255, 255, 0.25);
+  border-radius: 50%;
+  background: rgba(0, 0, 0, 0.3);
+  color: #fff;
+  font-size: 1.6rem;
+  line-height: 1;
+  cursor: pointer;
+}
+
+.arenawar_registration_close:focus-visible {
+  outline: 2px solid var(--accent1);
+  outline-offset: 2px;
+}
+
+.arenawar_registration_dialog .arenawar_registration_note {
+  margin: 0.75rem 0;
+}
+
+.arenawar_registration_team {
+  margin: 0.25rem 0;
+  color: var(--accent1);
+  font-weight: 800;
+  text-align: center;
+}
+
+.arenawar_registration_dialog .arenawar_registration_form {
+  margin-top: 0.75rem;
+}
+
+.arenawar_registration_dialog .arenawar_registration_status:empty {
+  display: none;
+}
+
+.arenawar_registration_dialog .arenawar_registration_form input[type="hidden"] {
+  display: none;
+}
+
+.arenawar_registration_close:hover,
+.arenawar_registration_close:focus-visible {
+  border-color: var(--accent1);
+  outline: 2px solid var(--accent1);
+  outline-offset: 2px;
+}
+
+.arenawar_team_register_button {
+  width: 100%;
+  padding: 0.55rem 0.75rem;
+  font-size: 0.85rem;
+}
+
+.arenawar_team_register_button:disabled {
+  opacity: 0.55;
+  cursor: not-allowed;
+}
+
+.arenawar_registration_note,
+.arenawar_registration_status {
+  color: rgba(255, 255, 255, 0.78);
+  line-height: 1.5;
+  text-align: center;
+}
+
+.arenawar_registration_form {
+  display: grid;
+  gap: 0.65rem;
+  margin-top: 1.25rem;
+}
+
+.arenawar_registration_form label {
+  margin-top: 0.4rem;
+  color: rgba(255, 255, 255, 0.9);
+  font-weight: 700;
+}
+
+.arenawar_registration_form .arenawar_required_label::after {
+  content: " *";
+  color: #ff7777;
+  font-weight: 800;
+}
+
+.arenawar_registration_form input,
+.arenawar_registration_form select {
+  width: 100%;
+  min-height: 2.8rem;
+  padding: 0.7rem 0.8rem;
+  box-sizing: border-box;
+  border: 1px solid rgba(2, 219, 2, 0.35);
+  border-radius: 0.5rem;
+  background: rgba(0, 0, 0, 0.35);
+  color: #fff;
+  font: inherit;
+}
+
+.arenawar_registration_form select option {
+  color: #111;
+}
+
+.arenawar_registration_form input:focus,
+.arenawar_registration_form select:focus {
+  outline: 2px solid var(--accent1);
+  outline-offset: 2px;
+}
+
+.arenawar_registration_submit {
+  min-height: 2.9rem;
+  margin-top: 0.6rem;
+  border: 0;
+  border-radius: 0.6rem;
+  background: linear-gradient(135deg, #02db02, #05b305);
+  color: #061006;
+  font: inherit;
+  font-weight: 800;
+  cursor: pointer;
+}
+
+.arenawar_registration_submit:disabled {
+  opacity: 0.55;
+  cursor: not-allowed;
+}
+
+.arenawar_registration_status {
+  margin: 0.5rem 0 0;
+  overflow-wrap: anywhere;
+}
+
 .countdown_finished_btn {
   display: flex;
   align-items: center;
@@ -507,22 +667,27 @@
 }
 
 .arenawar_team_flip {
-  min-height: 290px;
+  min-width: 0;
+  min-height: 320px;
   padding: 0;
-  perspective: 1000px;
+  -webkit-perspective: 1000px;
   cursor: pointer;
+  perspective: 1000px;
 }
 
 .arenawar_team_card_inner {
   position: relative;
   width: 100%;
   height: 100%;
-  min-height: 290px;
+  min-height: 320px;
+  -webkit-transform-style: preserve-3d;
+  -webkit-transition: -webkit-transform 0.7s cubic-bezier(0.22, 0.75, 0.25, 1);
   transform-style: preserve-3d;
   transition: transform 0.7s cubic-bezier(0.22, 0.75, 0.25, 1);
 }
 
 .arenawar_team_flip.is-flipped .arenawar_team_card_inner {
+  -webkit-transform: rotateY(180deg);
   transform: rotateY(180deg);
 }
 
@@ -533,28 +698,35 @@
   flex-direction: column;
   align-items: center;
   justify-content: center;
+  min-width: 0;
   text-align: center;
   border-radius: 1.5rem;
   border: 3px solid rgba(2, 219, 2, 0.2);
   padding: clamp(1.2rem, 3vw, 2rem);
   box-sizing: border-box;
-  backface-visibility: hidden;
   overflow: hidden;
+  -webkit-backface-visibility: hidden;
+  backface-visibility: hidden;
 }
 
 .arenawar_team_flip .arenawar_team_card_face {
-  gap: 0.2rem;
-  padding: 1rem;
+  container-type: inline-size;
+  gap: 0.35rem;
+  padding: clamp(0.65rem, 2vw, 1rem);
+  padding: clamp(0.65rem, 3cqi, 1rem);
 }
 
 .arenawar_team_card_front {
   background: linear-gradient(135deg, rgba(30, 35, 45, 0.8), rgba(20, 25, 35, 0.9));
+  -webkit-transform: translateZ(0.1px);
+  transform: translateZ(0.1px);
 }
 
 .arenawar_team_card_back {
   background: linear-gradient(145deg, rgba(10, 30, 24, 0.98), rgba(20, 25, 35, 0.98));
   border-color: var(--accent1);
-  transform: rotateY(180deg);
+  -webkit-transform: rotateY(180deg) translateZ(0.1px);
+  transform: rotateY(180deg) translateZ(0.1px);
 }
 
 .arenawar_team_flip:hover,
@@ -646,10 +818,13 @@
   display: flex;
   align-items: center;
   justify-content: center;
-  flex: 0 0 96px;
-  width: 96px;
-  height: 96px;
-  margin: 0 auto 0.65rem;
+  flex: 0 0 clamp(3.5rem, 14vw, 5.5rem);
+  width: clamp(3.5rem, 14vw, 5.5rem);
+  height: clamp(3.5rem, 14vw, 5.5rem);
+  flex-basis: clamp(3.5rem, 28cqi, 5.5rem);
+  width: clamp(3.5rem, 28cqi, 5.5rem);
+  height: clamp(3.5rem, 28cqi, 5.5rem);
+  margin: 0 auto 0.25rem;
   overflow: hidden;
   border: 3px solid rgba(2, 219, 2, 0.3);
   border-radius: 1rem;
@@ -663,25 +838,64 @@
 }
 
 .arenawar_team_flip .arenawar_team_card_name {
-  margin-bottom: 0.35rem;
-  font-size: clamp(1rem, 2vw, 1.35rem);
-  line-height: 1.15;
+  margin: 0;
+  font-size: clamp(0.8rem, 2.5vw, 1rem);
+  font-size: clamp(0.8rem, 7cqi, 1.05rem);
+  letter-spacing: 0.04em;
+  line-height: 1.12;
+  overflow-wrap: anywhere;
 }
 
 .arenawar_team_flip .arenawar_team_card_members {
-  font-size: 0.78rem;
-  line-height: 1.45;
+  max-width: 100%;
+  max-height: 5.2em;
+  overflow-y: auto;
+  font-size: clamp(0.7rem, 1.8vw, 0.82rem);
+  font-size: clamp(0.7rem, 4.8cqi, 0.82rem);
+  line-height: 1.35;
+  overflow-wrap: anywhere;
 }
 
 .arenawar_team_flip .arenawar_flip_hint {
-  margin-top: 0.45rem;
-  font-size: 0.68rem;
-  line-height: 1.2;
+  margin-top: 0.15rem;
+  font-size: clamp(0.58rem, 1.5vw, 0.68rem);
+  font-size: clamp(0.58rem, 4cqi, 0.68rem);
+  line-height: 1.15;
+  overflow-wrap: anywhere;
 }
 
 .season3_teams_grid {
-  grid-template-columns: repeat(4, minmax(0, 1fr));
+  grid-template-columns: repeat(auto-fit, minmax(min(100%, 220px), 1fr));
   max-width: 1100px;
+}
+
+.arenawar_team_flip .arenawar_team_attribute {
+  margin-top: 0.15rem;
+  font-size: clamp(0.78rem, 1.8vw, 0.95rem);
+  font-size: clamp(0.78rem, 5.5cqi, 0.95rem);
+  line-height: 1.25;
+  overflow-wrap: anywhere;
+}
+
+.arenawar_team_flip .arenawar_team_role {
+  max-width: 100%;
+  margin-top: 0.15rem;
+  font-size: clamp(0.68rem, 1.6vw, 0.78rem);
+  font-size: clamp(0.68rem, 4.6cqi, 0.78rem);
+  line-height: 1.3;
+  overflow-wrap: anywhere;
+}
+
+.arenawar_team_register_button {
+  flex: 0 0 auto;
+  max-width: 100%;
+  margin-top: 0.35rem;
+  padding: 0.5rem 0.65rem;
+  font-size: clamp(0.68rem, 1.8vw, 0.82rem);
+  font-size: clamp(0.68rem, 4.8cqi, 0.82rem);
+  line-height: 1.2;
+  white-space: normal;
+  overflow-wrap: anywhere;
 }
 
 .arenawar_team_card_name {
@@ -1064,14 +1278,18 @@
 }
 
 .arenawar_tab_content {
-  display: none;
+  display: none !important;
+  visibility: hidden;
   opacity: 0;
-  animation: fadeInUp 0.4s cubic-bezier(0.2, 0.8, 0.2, 1) forwards;
+  pointer-events: none;
 }
 
 .arenawar_tab_content.active {
-  display: block;
+  display: block !important;
+  visibility: visible;
   opacity: 1;
+  pointer-events: auto;
+  animation: fadeInUp 0.4s cubic-bezier(0.2, 0.8, 0.2, 1) forwards;
 }
 
 .arenawar_content_inner {
@@ -1138,5 +1356,11 @@
 @media (min-width: 901px) and (max-width: 1100px) {
   .arenawar_phase_list {
     grid-template-columns: repeat(3, minmax(0, 1fr));
+  }
+}
+
+@media (min-width: 521px) and (max-width: 768px) {
+  .season3_teams_grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
   }
 }

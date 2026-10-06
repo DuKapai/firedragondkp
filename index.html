@@ -154,7 +154,18 @@
           <span>Minecraft,</span><br />
           <a class="main1_actcent">always done better</a><a>.</a>
         </div>
-        <p class="main1_game_pitch" data-i18n="game_pitch">Giao lưu, đóng góp để có cơ hội vào nội bộ Drikapex. Cùng tổ chức vận hành hệ thống, nhận thù lao theo nhiệm vụ và phát triển nghề tay trái có thu nhập ngoài game.</p>
+        <p class="main1_game_pitch" data-i18n="game_pitch">Giao lưu, đóng góp để có cơ hội vào nội bộ Drikapex. Cùng tổ chức vận hành hệ thống, nhận thù lao theo nhiệm vụ và phát triển nghề tay trái có thêm thu nhập bên ngoài.</p>
+        <aside class="arena_hot_news" aria-labelledby="arenaHotNewsTitle">
+          <span class="arena_hot_news_badge" data-i18n="arena_hot_badge">TIN HOT</span>
+          <div class="arena_hot_news_content">
+            <h2 id="arenaHotNewsTitle" data-i18n="arena_hot_title">Arena War Season 3 đang mở đăng ký!</h2>
+            <p data-i18n="arena_hot_desc">Chọn đội, gửi thông tin đăng ký và chờ admin duyệt.</p>
+          </div>
+          <a class="arena_hot_news_link" href="#season-3" onclick="openArenaSeason3(event)">
+            <span data-i18n="arena_hot_link">Xem sự kiện &amp; đăng ký</span>
+            <span aria-hidden="true">→</span>
+          </a>
+        </aside>
         <div class="main1_ipcopier_div" style="animation-delay: 0.3s">
           <button class="main1_ipcopier" onclick="copyText()" type="button">
             <span class="main1_ipcopier_text1">comingsoon.asia</span>
@@ -405,8 +416,8 @@
             <p class="arenawar_subtitle" data-i18n="arenawar_subtitle">Sinh tồn, cướp bóc đến ngày chiến tranh trong đấu trường với những vật phẩm đã có trong quá trình sinh tồn để PvP và tính điểm / kill</p>
             <p class="arenawar_subtitle" data-i18n="arenawar_purpose">Arena Wars là sự kiện thường niên do Drikapex tổ chức mỗi năm một lần, nhằm tạo sân chơi cạnh tranh, tăng nhận diện cộng đồng và kết nối những người muốn trở thành thành viên nội bộ.</p>
             <div class="arenawar_access_badge">
-              <i class="fa fa-lock"></i>
-              <span data-i18n="internal_server_access">Chỉ dành cho thành viên chính thức trong nội bộ Discord</span>
+              <i class="fa fa-users"></i>
+              <span data-i18n="arena_registration_access">Mở đăng ký cho tất cả mọi người ĐÃ THAM GIA DISCORD • cần admin duyệt</span>
             </div>
           </div>
 
@@ -433,6 +444,8 @@
                     <iframe
                       class="arenawar_video_embed"
                       src="https://www.youtube.com/embed/xyK5ZAIcY0c?autoplay=0&rel=0"
+                      title="Arena Wars Official - Season 1"
+                      referrerpolicy="strict-origin-when-cross-origin"
                       frameborder="0"
                       allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
                       allowfullscreen>
@@ -522,66 +535,95 @@
                   </a>
                 </div>
 
+                <dialog class="arenawar_registration_dialog" id="arenaRegistrationDialog" aria-labelledby="arenaRegistrationTitle">
+                  <div class="arenawar_registration_dialog_header">
+                    <h3 class="arenawar_teams_title" id="arenaRegistrationTitle" data-i18n="arena_registration_title">Đăng ký tham gia</h3>
+                    <button class="arenawar_registration_close" type="button" data-close-arena-registration aria-label="Đóng" data-i18n-aria-label="arena_close">×</button>
+                  </div>
+                  <p class="arenawar_registration_note" data-i18n="arena_registration_note">Đơn đăng ký sẽ ở trạng thái chờ cho đến khi admin duyệt.</p>
+                  <p class="arenawar_registration_status" id="arenaConnectionStatus" role="status" aria-live="polite" data-i18n="arena_loading">Đang kết nối Arena War...</p>
+                  <form class="arenawar_registration_form" id="arenaRegistrationForm">
+                    <label class="arenawar_required_label" for="arenaMinecraftUsername" data-i18n="arena_minecraft_label">Tên Minecraft</label>
+                    <input id="arenaMinecraftUsername" name="minecraft_username" type="text" maxlength="100" autocomplete="username" required />
+
+                    <label class="arenawar_required_label" for="arenaDiscordUsername" data-i18n="arena_discord_label">Tên người dùng Discord</label>
+                    <input id="arenaDiscordUsername" name="discord_username" type="text" maxlength="100" autocomplete="off" required />
+
+                    <label class="arenawar_required_label" for="arenaPhoneNumber" data-i18n="arena_phone_label">Số điện thoại liên hệ</label>
+                    <input id="arenaPhoneNumber" name="phone_number" type="tel" maxlength="30" autocomplete="tel" inputmode="tel" placeholder="Nhập số điện thoại (VD: 0912 345 678)" data-i18n-placeholder="arena_phone_placeholder" aria-describedby="arenaPhoneFeedback" required />
+                    <p class="arenawar_phone_feedback" id="arenaPhoneFeedback" role="status" aria-live="polite"></p>
+                    <input id="arenaTeamSelect" name="team_id" type="hidden" />
+                    <p class="arenawar_registration_team" id="arenaRegistrationTeam"></p>
+
+                    <button class="arenawar_registration_submit" id="arenaRegistrationSubmit" type="submit" data-i18n="arena_submit">Gửi đăng ký</button>
+                    <p class="arenawar_registration_status" id="arenaRegistrationFeedback" role="status" aria-live="polite"></p>
+                  </form>
+                </dialog>
+
                 <div class="arenawar_teams_section">
                   <h3 class="arenawar_teams_title" data-i18n="arenawar_teams_title">Đội Tham Dự</h3>
                   <div class="arenawar_teams_grid season3_teams_grid">
-                    <div class="arenawar_team_card arenawar_team_card_1 arenawar_team_flip" tabindex="0" role="button" aria-pressed="false" onclick="toggleArenaTeamCard(this)" onkeydown="handleArenaTeamKeydown(event, this)">
+                    <div class="arenawar_team_card arenawar_team_card_1 arenawar_team_flip" tabindex="0" role="group" aria-expanded="false" onclick="toggleArenaTeamCard(this)" onkeydown="handleArenaTeamKeydown(event, this)">
                       <div class="arenawar_team_card_inner">
                         <div class="arenawar_team_card_face arenawar_team_card_front">
-                          <div class="arenawar_team_logo_frame"><img class="arenawar_team_logo_large" src="media/Team1.jpg" alt="Orange Team logo" /></div>
+                          <div class="arenawar_team_logo_frame"><img class="arenawar_team_logo_large" src="media/Team1.jpg" alt="Logo Orange Team" data-i18n-alt="season3_team1_alt" /></div>
                           <div class="arenawar_team_card_name" data-i18n="season3_team1_name">Orange Team</div>
-                          <div class="arenawar_team_card_members" data-i18n="season3_team_members">Chưa có thành viên đăng ký</div>
+                          <div class="arenawar_team_card_members" data-team-code="ORANGE" aria-live="polite">Chưa có thành viên đăng ký</div>
                           <div class="arenawar_team_flip_hint" data-i18n="season3_flip_hint">Chạm để xem thuộc tính</div>
                         </div>
                         <div class="arenawar_team_card_face arenawar_team_card_back">
                           <div class="arenawar_team_card_name" data-i18n="season3_team1_name">Orange Team</div>
                           <div class="arenawar_team_attribute" data-i18n="season3_team1_effect">Hiệu ứng gốc: Thiêu đốt</div>
-                          <div class="arenawar_team_role" data-i18n="season3_team1_role">Gây sát thương cầu rỉa</div>
+                          <div class="arenawar_team_role" data-i18n="season3_team1_role">Gây sát thương cấu rỉa</div>
+                          <button class="arenawar_registration_submit arenawar_team_register_button" type="button" data-register-team-code="ORANGE" data-i18n="arena_register_team">Đăng ký đội này</button>
                         </div>
                       </div>
                     </div>
-                    <div class="arenawar_team_card arenawar_team_card_2 arenawar_team_flip" tabindex="0" role="button" aria-pressed="false" onclick="toggleArenaTeamCard(this)" onkeydown="handleArenaTeamKeydown(event, this)">
+                    <div class="arenawar_team_card arenawar_team_card_2 arenawar_team_flip" tabindex="0" role="group" aria-expanded="false" onclick="toggleArenaTeamCard(this)" onkeydown="handleArenaTeamKeydown(event, this)">
                       <div class="arenawar_team_card_inner">
                         <div class="arenawar_team_card_face arenawar_team_card_front">
-                          <div class="arenawar_team_logo_frame"><img class="arenawar_team_logo_large" src="media/yellowfdg.png" alt="Yellow Team logo" /></div>
+                          <div class="arenawar_team_logo_frame"><img class="arenawar_team_logo_large" src="media/yellowfdg.png" alt="Logo Yellow Team" data-i18n-alt="season3_team2_alt" /></div>
                           <div class="arenawar_team_card_name" data-i18n="season3_team2_name">Yellow Team</div>
-                          <div class="arenawar_team_card_members" data-i18n="season3_team_members">Chưa có thành viên đăng ký</div>
+                          <div class="arenawar_team_card_members" data-team-code="YELLOW" aria-live="polite">Chưa có thành viên đăng ký</div>
                           <div class="arenawar_team_flip_hint" data-i18n="season3_flip_hint">Chạm để xem thuộc tính</div>
                         </div>
                         <div class="arenawar_team_card_face arenawar_team_card_back">
                           <div class="arenawar_team_card_name" data-i18n="season3_team2_name">Yellow Team</div>
                           <div class="arenawar_team_attribute" data-i18n="season3_team2_effect">Hiệu ứng gốc: Yếu đuối</div>
                           <div class="arenawar_team_role" data-i18n="season3_team2_role">Làm suy yếu sát thương</div>
+                          <button class="arenawar_registration_submit arenawar_team_register_button" type="button" data-register-team-code="YELLOW" data-i18n="arena_register_team">Đăng ký đội này</button>
                         </div>
                       </div>
                     </div>
-                    <div class="arenawar_team_card arenawar_team_card_3 arenawar_team_flip" tabindex="0" role="button" aria-pressed="false" onclick="toggleArenaTeamCard(this)" onkeydown="handleArenaTeamKeydown(event, this)">
+                    <div class="arenawar_team_card arenawar_team_card_3 arenawar_team_flip" tabindex="0" role="group" aria-expanded="false" onclick="toggleArenaTeamCard(this)" onkeydown="handleArenaTeamKeydown(event, this)">
                       <div class="arenawar_team_card_inner">
                         <div class="arenawar_team_card_face arenawar_team_card_front">
-                          <div class="arenawar_team_logo_frame"><img class="arenawar_team_logo_large" src="media/greenfdg.png" alt="Green Team logo" /></div>
+                          <div class="arenawar_team_logo_frame"><img class="arenawar_team_logo_large" src="media/greenfdg.png" alt="Logo Green Team" data-i18n-alt="season3_team3_alt" /></div>
                           <div class="arenawar_team_card_name" data-i18n="season3_team3_name">Green Team</div>
-                          <div class="arenawar_team_card_members" data-i18n="season3_team_members">Chưa có thành viên đăng ký</div>
+                          <div class="arenawar_team_card_members" data-team-code="GREEN" aria-live="polite">Chưa có thành viên đăng ký</div>
                           <div class="arenawar_team_flip_hint" data-i18n="season3_flip_hint">Chạm để xem thuộc tính</div>
                         </div>
                         <div class="arenawar_team_card_face arenawar_team_card_back">
                           <div class="arenawar_team_card_name" data-i18n="season3_team3_name">Green Team</div>
                           <div class="arenawar_team_attribute" data-i18n="season3_team3_effect">Hiệu ứng gốc: Choáng</div>
                           <div class="arenawar_team_role" data-i18n="season3_team3_role">Gây mất phương hướng</div>
+                          <button class="arenawar_registration_submit arenawar_team_register_button" type="button" data-register-team-code="GREEN" data-i18n="arena_register_team">Đăng ký đội này</button>
                         </div>
                       </div>
                     </div>
-                    <div class="arenawar_team_card arenawar_team_card_4 arenawar_team_flip" tabindex="0" role="button" aria-pressed="false" onclick="toggleArenaTeamCard(this)" onkeydown="handleArenaTeamKeydown(event, this)">
+                    <div class="arenawar_team_card arenawar_team_card_4 arenawar_team_flip" tabindex="0" role="group" aria-expanded="false" onclick="toggleArenaTeamCard(this)" onkeydown="handleArenaTeamKeydown(event, this)">
                       <div class="arenawar_team_card_inner">
                         <div class="arenawar_team_card_face arenawar_team_card_front">
-                          <div class="arenawar_team_logo_frame"><img class="arenawar_team_logo_large" src="media/bluefdg.png" alt="Blue Team logo" /></div>
+                          <div class="arenawar_team_logo_frame"><img class="arenawar_team_logo_large" src="media/bluefdg.png" alt="Logo Blue Team" data-i18n-alt="season3_team4_alt" /></div>
                           <div class="arenawar_team_card_name" data-i18n="season3_team4_name">Blue Team</div>
-                          <div class="arenawar_team_card_members" data-i18n="season3_team_members">Chưa có thành viên đăng ký</div>
+                          <div class="arenawar_team_card_members" data-team-code="BLUE" aria-live="polite">Chưa có thành viên đăng ký</div>
                           <div class="arenawar_team_flip_hint" data-i18n="season3_flip_hint">Chạm để xem thuộc tính</div>
                         </div>
                         <div class="arenawar_team_card_face arenawar_team_card_back">
                           <div class="arenawar_team_card_name" data-i18n="season3_team4_name">Blue Team</div>
                           <div class="arenawar_team_attribute" data-i18n="season3_team4_effect">Hiệu ứng gốc: Làm chậm</div>
                           <div class="arenawar_team_role" data-i18n="season3_team4_role">Làm chậm di chuyển</div>
+                          <button class="arenawar_registration_submit arenawar_team_register_button" type="button" data-register-team-code="BLUE" data-i18n="arena_register_team">Đăng ký đội này</button>
                         </div>
                       </div>
                     </div>
@@ -827,7 +869,6 @@
         if (!tabBtn) return;
 
         const tabName = tabBtn.getAttribute('data-tab');
-        const wrapper = document.querySelector('.arenawar_tab_content_wrapper');
         
         // Remove active class from all buttons and contents
         document.querySelectorAll('.arenawar_tab_btn').forEach(btn => {
@@ -845,19 +886,35 @@
         }
       }
 
+      function openArenaSeason3(event) {
+        event.preventDefault();
+        setActivePage(2);
+
+        document.querySelectorAll('.arenawar_tab_btn').forEach((button) => {
+          button.classList.toggle('active', button.dataset.tab === 'season-3');
+        });
+        document.querySelectorAll('.arenawar_tab_content').forEach((content) => {
+          content.classList.toggle('active', content.id === 'season-3');
+        });
+
+        history.replaceState(null, '', '#season-3');
+        window.scrollTo({ top: 0, left: 0, behavior: 'instant' });
+      }
+
       function toggleArenaTeamCard(card) {
         document.querySelectorAll('.arenawar_team_flip.is-flipped').forEach((openCard) => {
           if (openCard !== card) {
             openCard.classList.remove('is-flipped');
-            openCard.setAttribute('aria-pressed', 'false');
+            openCard.setAttribute('aria-expanded', 'false');
           }
         });
 
         const isFlipped = card.classList.toggle('is-flipped');
-        card.setAttribute('aria-pressed', String(isFlipped));
+        card.setAttribute('aria-expanded', String(isFlipped));
       }
 
       function handleArenaTeamKeydown(event, card) {
+        if (event.target !== card) return;
         if (event.key === 'Enter' || event.key === ' ') {
           event.preventDefault();
           toggleArenaTeamCard(card);
@@ -1207,7 +1264,7 @@
           feature4_desc: 'Dữ liệu tài khoản được lưu trữ và bảo mật lâu dài.',
           feature5_title: 'Chơi Cùng Đồng Đội',
           feature5_desc: 'Hợp tác cùng bạn bè để sinh tồn và thống trị cuộc săn.',
-          game_pitch: 'Giao lưu, đóng góp để có cơ hội vào nội bộ Drikapex. Cùng tổ chức vận hành hệ thống, nhận thù lao theo nhiệm vụ và phát triển nghề tay trái có thu nhập ngoài game.',
+          game_pitch: 'Giao lưu, đóng góp để có cơ hội vào nội bộ Drikapex. Cùng tổ chức vận hành hệ thống, nhận thù lao theo nhiệm vụ và phát triển nghề tay trái có thêm thu nhập bên ngoài.',
           sidebar_title: 'Cộng đồng Drikapex',
           sidebar_subtitle: 'Giao lưu, đóng góp và hướng tới thành viên nội bộ',
           discord_title: 'Kết nối cộng đồng trên Discord',
@@ -1260,11 +1317,40 @@
           internal_server_name: 'ArenaWar',
           internal_server_desc: 'Sinh tồn và cướp bóc để chuẩn bị cho ngày chiến tranh; dùng trang bị thu thập được để PvP và ghi điểm theo số mạng.',
           internal_server_access: 'Chỉ dành cho thành viên chính thức trong nội bộ máy chủ Discord',
+          arena_registration_access: 'Mở đăng ký cho tất cả mọi người ĐÃ THAM GIA DISCORD • cần admin duyệt',
+          arena_registration_title: 'Đăng ký tham gia',
+          arena_registration_note: 'Đơn đăng ký sẽ ở trạng thái chờ cho đến khi admin duyệt.',
+          arena_minecraft_label: 'Tên Minecraft',
+          arena_discord_label: 'Tên người dùng Discord',
+          arena_phone_label: 'Số điện thoại liên hệ',
+          arena_phone_placeholder: 'Nhập số điện thoại (VD: 0912 345 678 hoặc +84 912 345 678)',
+          arena_phone_invalid: 'Số điện thoại chưa đúng định dạng. Nhập số Việt Nam 10 chữ số (bắt đầu bằng 0), hoặc số quốc tế có mã quốc gia như +84.',
+          arena_phone_valid: 'Định dạng số điện thoại hợp lệ.',
+          arena_register_team: 'Đăng ký đội này',
+          arena_close: 'Đóng',
+          arena_submit: 'Gửi đăng ký',
+          arena_loading: 'Đang kết nối Arena War...',
+          arena_connected: 'Đã kết nối Arena War. Danh sách thành viên được làm mới mỗi phút.',
+          arena_load_error: 'Không thể tải dữ liệu Arena War. Vui lòng tải lại trang sau.',
+          arena_config_missing: 'Chưa cấu hình kết nối Supabase cho Arena War.',
+          arena_sending: 'Đang gửi đăng ký...',
+          arena_sent: 'Đã gửi đăng ký. Vui lòng chờ admin duyệt.',
+          arena_duplicate: 'Tên Minecraft này đã được đăng ký.',
+          arena_already_registered: 'Bạn đã đăng ký vào đội “{team}”.',
+          arena_required_fields: 'Vui lòng điền đầy đủ và chính xác các thông tin bắt buộc.',
+          arena_team_required: 'Vui lòng chọn đội đăng ký bằng cách mở form từ mặt sau của thẻ đội.',
+          arena_submit_error: 'Không gửi được đăng ký. Vui lòng thử lại sau.',
+          arena_no_members: 'Chưa có thành viên được duyệt',
+          arena_team_prefix: 'Đội đăng ký: ',
+          arena_hot_badge: 'TIN HOT',
+          arena_hot_title: 'Arena War Season 3 đang mở đăng ký!',
+          arena_hot_desc: 'Chọn đội, gửi thông tin đăng ký và chờ admin duyệt.',
+          arena_hot_link: 'Xem sự kiện &amp; đăng ký',
           season2_title: 'Arena Wars Season 2',
           season2_countdown: 'Trạng thái mùa giải',
           season2_status: 'Đây là mùa chạy thử. Hệ thống đang được đánh giá và kết quả thi đấu chưa được xác định chính thức.',
           season3_countdown: 'Đếm ngược đến Season 3',
-          season3_status: 'Season 3 dự kiến mở đăng ký cho cả Guest Interaction Member (thành viên ngoại viện). Theo dõi Discord để xem điều kiện và thời gian đăng ký.',
+          season3_status: 'Đăng ký Season 3 mở cho tất cả mọi người. Lật thẻ đội, chọn “Đăng ký đội này” và điền đầy đủ thông tin; đơn cần admin duyệt.',
           countdown_days: 'Ngày',
           countdown_hours: 'Giờ',
           countdown_minutes: 'Phút',
@@ -1277,9 +1363,13 @@
           season3_team2_name: 'Yellow Team',
           season3_team3_name: 'Green Team',
           season3_team4_name: 'Blue Team',
+          season3_team1_alt: 'Logo Orange Team',
+          season3_team2_alt: 'Logo Yellow Team',
+          season3_team3_alt: 'Logo Green Team',
+          season3_team4_alt: 'Logo Blue Team',
           season3_team_members: 'Chưa có thành viên đăng ký',
           season3_team1_effect: 'Hiệu ứng gốc: Thiêu đốt',
-          season3_team1_role: 'Gây sát thương tầm xa',
+          season3_team1_role: 'Gây sát thương cấu rỉa',
           season3_team2_effect: 'Hiệu ứng gốc: Yếu đuối',
           season3_team2_role: 'Làm suy yếu sát thương',
           season3_team3_effect: 'Hiệu ứng gốc: Buồn nôn',
@@ -1346,7 +1436,7 @@
           feature4_desc: 'Account data is stored and secured long-term.',
           feature5_title: 'Play with Your Team',
           feature5_desc: 'Cooperate with friends to survive and dominate the hunt.',
-          game_pitch: 'Connect and contribute for a chance to join Drikapex internally. Help operate our systems, earn compensation for assigned work, and build side income beyond the game.',
+          game_pitch: 'Connect and contribute for a chance to join Drikapex internally. Help operate our systems, earn compensation for assigned work, and develop a side business for additional income.',
           sidebar_title: 'Drikapex Community',
           sidebar_subtitle: 'Connect, contribute, and work toward internal membership',
           discord_title: 'Join the Drikapex community',
@@ -1399,11 +1489,40 @@
           internal_server_name: 'ArenaWar',
           internal_server_desc: 'Survive and raid to prepare for war; bring the gear you collect into PvP and score by kills.',
           internal_server_access: 'Only for official members internal Discord server',
+          arena_registration_access: 'Registration is open to everyone who has JOINED OUR DISCORD • admin approval required',
+          arena_registration_title: 'Register for Arena War',
+          arena_registration_note: 'Your registration will remain pending until an admin approves it.',
+          arena_minecraft_label: 'Minecraft username',
+          arena_discord_label: 'Discord username',
+          arena_phone_label: 'Contact phone number',
+          arena_phone_placeholder: 'Enter phone number (e.g. 0912 345 678 or +84 912 345 678)',
+          arena_phone_invalid: 'Invalid phone number format. Enter a 10-digit Vietnamese number starting with 0, or an international number with country code such as +84.',
+          arena_phone_valid: 'Phone number format is valid.',
+          arena_register_team: 'Register for this team',
+          arena_close: 'Close',
+          arena_submit: 'Submit registration',
+          arena_loading: 'Connecting to Arena War...',
+          arena_connected: 'Connected to Arena War. The member list refreshes every minute.',
+          arena_load_error: 'Could not load Arena War data. Please reload the page later.',
+          arena_config_missing: 'Arena War Supabase connection is not configured.',
+          arena_sending: 'Submitting registration...',
+          arena_sent: 'Registration submitted. Please wait for admin approval.',
+          arena_duplicate: 'This Minecraft username is already registered.',
+          arena_already_registered: 'You are already registered for “{team}”.',
+          arena_required_fields: 'Please complete all required fields accurately.',
+          arena_team_required: 'Choose a team by flipping its card and opening the registration form.',
+          arena_submit_error: 'Could not submit registration. Please try again later.',
+          arena_no_members: 'No approved members yet',
+          arena_team_prefix: 'Registered team: ',
+          arena_hot_badge: 'HOT EVENT',
+          arena_hot_title: 'Arena War Season 3 registration is open!',
+          arena_hot_desc: 'Choose a team, submit your details, and wait for admin approval.',
+          arena_hot_link: 'View event &amp; register',
           season2_title: 'Arena Wars Season 2',
           season2_countdown: 'Season status',
           season2_status: 'This is a test season. The system is under evaluation and competitive results have not been officially determined.',
           season3_countdown: 'Countdown to Season 3',
-          season3_status: 'Season 3 is expected to open registration to Guest Interaction Members as well. Follow Discord for eligibility and registration dates.',
+          season3_status: 'Season 3 registration is open to everyone. Flip a team card, select “Register for this team,” and complete all required fields; admin approval is required.',
           countdown_days: 'Days',
           countdown_hours: 'Hours',
           countdown_minutes: 'Minutes',
@@ -1416,9 +1535,13 @@
           season3_team2_name: 'Yellow Team',
           season3_team3_name: 'Green Team',
           season3_team4_name: 'Blue Team',
+          season3_team1_alt: 'Orange Team logo',
+          season3_team2_alt: 'Yellow Team logo',
+          season3_team3_alt: 'Green Team logo',
+          season3_team4_alt: 'Blue Team logo',
           season3_team_members: 'No registered members yet',
           season3_team1_effect: 'Base effect: Flame',
-          season3_team1_role: 'Applies ranged chip damage',
+          season3_team1_role: 'Deals damage over time',
           season3_team2_effect: 'Base effect: Weakness',
           season3_team2_role: 'Reduces enemy damage output',
           season3_team3_effect: 'Base effect: Nausea',
@@ -1449,6 +1572,8 @@
         }
       };
 
+      window.ARENA_I18N = i18nData;
+
       let currentLanguage = localStorage.getItem('language') || 'vi';
 
       function updateLanguage(lang) {
@@ -1469,9 +1594,31 @@
           }
         });
 
+        document.querySelectorAll('[data-i18n-aria-label]').forEach(element => {
+          const key = element.getAttribute('data-i18n-aria-label');
+          if (i18nData[lang] && i18nData[lang][key]) {
+            element.setAttribute('aria-label', i18nData[lang][key]);
+          }
+        });
+
+        document.querySelectorAll('[data-i18n-alt]').forEach(element => {
+          const key = element.getAttribute('data-i18n-alt');
+          if (i18nData[lang] && i18nData[lang][key]) {
+            element.setAttribute('alt', i18nData[lang][key]);
+          }
+        });
+
+        document.querySelectorAll('[data-i18n-placeholder]').forEach(element => {
+          const key = element.getAttribute('data-i18n-placeholder');
+          if (i18nData[lang] && i18nData[lang][key]) {
+            element.setAttribute('placeholder', i18nData[lang][key]);
+          }
+        });
+
         // Update document language
         document.documentElement.lang = lang;
         document.title = i18nData[lang].page_title;
+        document.dispatchEvent(new CustomEvent('app-language-changed', { detail: { language: lang } }));
       }
 
       // Initialize language on page load
@@ -1551,5 +1698,8 @@
       // Start countdown when page loads
       updateCountdown();
     </script>
+    <script src="media/arenawar-runtime-config.js"></script>
+    <script src="media/arenawar-config.js"></script>
+    <script src="media/arenawar.js"></script>
   </body>
 </html>
