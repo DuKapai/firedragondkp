@@ -461,7 +461,7 @@ body {
   background: linear-gradient(135deg, transparent, rgba(2, 219, 2, 0.1));
   position: relative;
   overflow: hidden;
-  cursor: url("Join/cur2.cur"), pointer;
+  cursor: url("../media/Join/cur2.cur"), pointer;
   display: inline-block;
   white-space: nowrap;
   margin-left: auto;
@@ -720,7 +720,7 @@ body {
   color: rgba(255, 255, 255, 0.85);
   font-size: 0.95rem;
   font-weight: 500;
-  cursor: url("Join/cur2.cur"), pointer;
+  cursor: url("../media/Join/cur2.cur"), pointer;
   border-radius: 0.6rem;
   transition: all 0.3s cubic-bezier(0.2, 0.8, 0.2, 1);
   border-left: 3px solid transparent;
@@ -809,7 +809,7 @@ body {
   font-size: 0.9rem;
   border-radius: 0.5rem;
   transition: all 0.3s cubic-bezier(0.2, 0.8, 0.2, 1);
-  cursor: url("Join/cur2.cur"), pointer;
+  cursor: url("../media/Join/cur2.cur"), pointer;
   animation: slideInLeft 0.5s ease 0.55s backwards;
   min-height: 44px;
   align-items: center;
@@ -1066,7 +1066,7 @@ body {
   content: "";
   position: absolute;
   inset: -60px;
-  background: rgba(0, 0, 0, 0.55) url("placeblur.png");
+  background: rgba(0, 0, 0, 0.55) url("../media/placeblur.png");
   background-blend-mode: darken;
   background-repeat: no-repeat;
   background-position: center;
@@ -1093,7 +1093,7 @@ body {
 
 .main1_logo_a {
   margin-bottom: var(--nice-padding);
-  cursor: url("Join/cur2.cur"), pointer;
+  cursor: url("../media/Join/cur2.cur"), pointer;
   position: relative;
   z-index: 1;
 }
@@ -1233,7 +1233,7 @@ body {
   border-radius: var(--roundness);
   color: white;
   transition: all 0.5s cubic-bezier(0.2, 0.8, 0.2, 1);
-  cursor: url("Join/cur2.cur"), pointer;
+  cursor: url("../media/Join/cur2.cur"), pointer;
   position: relative;
   z-index: 2;
   font-weight: 700;
@@ -3701,7 +3701,7 @@ body {
 
 @media (min-width: 769px) {
   body {
-    cursor: url("Join/cur1.cur"), auto;
+    cursor: url("../media/Join/cur1.cur"), auto;
   }
   .language-switcher-mobile {
     display: none !important;
@@ -3715,7 +3715,7 @@ body {
   .main2_feature,
   .main3_join_div,
   .main4_dc_button_a {
-    cursor: url("Join/cur2.cur"), pointer;
+    cursor: url("../media/Join/cur2.cur"), pointer;
   }
 }
 
@@ -4315,7 +4315,7 @@ html body .main2_feature,
 html body .main3_join_div,
 html body .main5_admins_div,
 html body .main5_supporters_div {
-  cursor: url("Join/cur2.cur"), pointer;
+  cursor: url("../media/Join/cur2.cur"), pointer;
 }
 
 @media (min-width: 1025px) {

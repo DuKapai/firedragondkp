@@ -35,12 +35,8 @@ jobs:
           mkdir _site
           cp index.html _site/
           cp -R media _site/media
-
-      - name: Generate Arena War runtime configuration
-        env:
-          SUPABASE_URL: ${{ secrets.SUPABASE_URL }}
-          SUPABASE_ANON_KEY: ${{ secrets.SUPABASE_ANON_KEY }}
-        run: node scripts/generate-arena-config.js _site/media/arenawar-runtime-config.js --allow-missing
+          mkdir _site/scripts
+          cp scripts/arenawar-runtime-config.js scripts/arenawar-config.js scripts/arenawar.js scripts/style.css scripts/arenawar-styles.css scripts/bloodmoon.css _site/scripts/
 
       - name: Upload Pages artifact
         uses: actions/upload-pages-artifact@v3

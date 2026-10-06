@@ -16,6 +16,8 @@
   let connectionState = 'arena_loading';
   let feedbackState = null;
   let selectedTeamId = null;
+  let approvedTeamByUsername = new Map();
+  let registrationLookupAvailable = null;
 
   function text(key) {
     const language = document.documentElement.lang === 'en' ? 'en' : 'vi';
@@ -126,12 +128,25 @@
   }
 
   async function findRegisteredTeam(username) {
-    const matches = await supabaseRequest('rpc/lookup_arena_registration_team', {
-      method: 'POST',
-      headers: { 'Content-Type': 'application/json' },
-      body: JSON.stringify({ p_minecraft_username: username })
-    });
-    return matches[0]?.team_name || null;
+    if (registrationLookupAvailable !== false) {
+      try {
+        const matches = await supabaseRequest('rpc/lookup_arena_registration_team', {
+          method: 'POST',
+          headers: { 'Content-Type': 'application/json' },
+          body: JSON.stringify({ p_minecraft_username: username })
+        });
+        registrationLookupAvailable = true;
+        return matches[0]?.team_name || null;
+      } catch (error) {
+        if (error.databaseCode !== 'PGRST202') throw error;
+        registrationLookupAvailable = false;
+        console.warn(
+          'Arena War duplicate lookup RPC is unavailable; falling back to approved registrations and the database unique constraint.',
+        );
+      }
+    }
+
+    return approvedTeamByUsername.get(username.trim().toLowerCase()) || null;
   }
 
   function setAlreadyRegisteredMessage(teamName) {
@@ -147,12 +162,21 @@
 
   function displayApprovedMembers(teams, registrations) {
     const teamsById = new Map(teams.map((team) => [String(team.id), team.team_code]));
+    const teamNamesById = new Map(teams.map((team) => [String(team.id), team.team_name]));
     const membersByCode = new Map(teams.map((team) => [team.team_code, []]));
+    approvedTeamByUsername = new Map();
 
     registrations.forEach((registration) => {
       const teamCode = teamsById.get(String(registration.team_id));
       const members = membersByCode.get(teamCode);
       if (members) members.push(registration.minecraft_username);
+      const teamName = teamNamesById.get(String(registration.team_id));
+      if (teamName) {
+        approvedTeamByUsername.set(
+          registration.minecraft_username.trim().toLowerCase(),
+          teamName,
+        );
+      }
     });
 
     teamMemberElements.forEach((element) => {

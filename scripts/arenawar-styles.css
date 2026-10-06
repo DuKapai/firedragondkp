@@ -1143,7 +1143,7 @@
 .arenawar_section button,
 .arenawar_section [role="button"],
 .arenawar_section [onclick] {
-  cursor: url("Join/cur2.cur"), pointer;
+  cursor: url("../media/Join/cur2.cur"), pointer;
 }
 
 /* ==================== ARENA WARS PAGINATION TABS ====================  */

@@ -26,26 +26,19 @@ Test it out: https://fqqd.github.io/MCServer-Web-Template/index.html
 ## Arena War registration (Supabase)
 
 The Season 3 registration form uses the existing `public.arena_teams` and
-`public.arena_registrations` tables. Keep `SUPABASE_URL` and
-`SUPABASE_ANON_KEY` in a local `.env` file (start from `.env.example`); the
-deployment workflow reads the same values from GitHub Actions repository
-secrets and generates `media/arenawar-runtime-config.js` during the build.
-`.env` and the generated runtime config are ignored by Git.
+`public.arena_registrations` tables. Keep the Supabase Project URL and public
+anon/publishable key in a local `.env` file (start from `.env.example`), then
+run `node scripts/generate-arena-config.js` to generate
+`scripts/arenawar-runtime-config.js`. That generated file is included in the
+static-site deployment because a browser-based website needs the public anon
+key to call Supabase. It is not a secret; never use a `service_role` key in
+the frontend. `.env` remains ignored by Git.
 
-Set the GitHub Actions secrets `SUPABASE_URL` and `SUPABASE_ANON_KEY` in the
-repository settings before deploying. `media/arenawar-config.js` contains no
-key; it reads the runtime config generated from `.env` locally or from Actions
-secrets in the deployment artifact. `SUPABASE_ANON_KEY` is the public
-anon/publishable key, not a secret credential: it will still be visible in
-browser requests after deployment. Never use a `service_role` key in the
-frontend or GitHub Pages build. Protect data with Row Level Security and
-column grants; environment variables prevent committing the key but do not
-hide it from website visitors.
-
-The Pages workflow can deploy even before these Actions secrets are set. In
-that case the site loads normally but Arena War registration stays disabled
-and shows its configuration-missing message. Add both secrets and rerun the
-workflow to enable the Supabase integration.
+The deployment workflow copies browser scripts and site stylesheets from
+`scripts/` to the Pages artifact. Website CSS is kept in `scripts/`; the
+separate Angular app keeps its component styles under `angular-app/src/`.
+The public anon key will be visible to visitors in browser requests, so
+protect data with Row Level Security and column grants.
 
 Before opening registration publicly, run these grants after creating the
 tables and RLS policies. They remove any table-wide grants (including grants
@@ -131,7 +124,8 @@ done in Supabase.
 
 #### How do I personalize this website?
 
-To edit this website, simply fork the repository and edit the "index.html" and the "style.css" in the "media" folder. 
+To edit this website, simply fork the repository and edit "index.html" and
+"scripts/style.css".
 Reading through the code should be enough to understand what you are able to edit.
 
 #### How do I make the Discord Embed work?
