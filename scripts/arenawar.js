@@ -220,10 +220,6 @@
     registrationDialog.close();
   });
 
-  registrationDialog.addEventListener('click', (event) => {
-    if (event.target === registrationDialog) registrationDialog.close();
-  });
-
   document.addEventListener('app-language-changed', renderLocalizedState);
   phoneInput.addEventListener('input', () => validatePhoneNumber());
   phoneInput.addEventListener('blur', () => validatePhoneNumber());
