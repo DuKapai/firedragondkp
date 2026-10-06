@@ -22,7 +22,35 @@
   function text(key) {
     const language = document.documentElement.lang === 'en' ? 'en' : 'vi';
     const translation = window.ARENA_I18N?.[language]?.[key];
-    return translation || key;
+    if (translation) return translation;
+
+    const fallbackMessages = {
+      arena_already_registered: {
+        vi: 'Tên Minecraft này đã có đơn đăng ký. Vui lòng kiểm tra trạng thái hoặc liên hệ quản trị viên.',
+        en: 'A registration already exists for this Minecraft username. Check its status or contact an administrator.'
+      },
+      arena_duplicate: {
+        vi: 'Tên Minecraft này đã có hồ sơ đăng ký. Vui lòng liên hệ quản trị viên để được hỗ trợ.',
+        en: 'A registration already exists for this Minecraft username. Contact an administrator for help.'
+      },
+      arena_existing_pending: {
+        vi: 'Đơn đăng ký đã được tiếp nhận và đang chờ quản trị viên duyệt. Bạn không cần gửi lại.',
+        en: 'Your registration has been received and is awaiting administrator review. You do not need to submit it again.'
+      },
+      arena_existing_approved: {
+        vi: 'Tên Minecraft này đã được quản trị viên duyệt; không thể đăng ký thêm.',
+        en: 'This Minecraft username has already been approved; another registration is not allowed.'
+      },
+      arena_existing_rejected: {
+        vi: 'Đơn đăng ký trước đã bị từ chối. Vui lòng liên hệ quản trị viên nếu cần được xem xét lại.',
+        en: 'The previous registration was rejected. Contact an administrator if you would like it reviewed.'
+      }
+    };
+    return fallbackMessages[key]?.[language] || (
+      language === 'en'
+        ? 'We could not complete this request. Please try again or contact an administrator.'
+        : 'Không thể hoàn tất yêu cầu. Vui lòng thử lại hoặc liên hệ quản trị viên.'
+    );
   }
 
   function setFeedback(key, teamName) {
