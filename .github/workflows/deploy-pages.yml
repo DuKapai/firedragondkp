@@ -40,7 +40,7 @@ jobs:
         env:
           SUPABASE_URL: ${{ secrets.SUPABASE_URL }}
           SUPABASE_ANON_KEY: ${{ secrets.SUPABASE_ANON_KEY }}
-        run: node scripts/generate-arena-config.js _site/media/arenawar-runtime-config.js
+        run: node scripts/generate-arena-config.js _site/media/arenawar-runtime-config.js --allow-missing
 
       - name: Upload Pages artifact
         uses: actions/upload-pages-artifact@v3

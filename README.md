@@ -42,6 +42,11 @@ frontend or GitHub Pages build. Protect data with Row Level Security and
 column grants; environment variables prevent committing the key but do not
 hide it from website visitors.
 
+The Pages workflow can deploy even before these Actions secrets are set. In
+that case the site loads normally but Arena War registration stays disabled
+and shows its configuration-missing message. Add both secrets and rerun the
+workflow to enable the Supabase integration.
+
 Before opening registration publicly, run these grants after creating the
 tables and RLS policies. They remove any table-wide grants (including grants
 inherited from `PUBLIC`), allow the site to read team names and approved
