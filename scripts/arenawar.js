@@ -44,6 +44,22 @@
       arena_existing_rejected: {
         vi: 'Đơn đăng ký trước đã bị từ chối. Vui lòng liên hệ quản trị viên nếu cần được xem xét lại.',
         en: 'The previous registration was rejected. Contact an administrator if you would like it reviewed.'
+      },
+      arena_required_minecraft: {
+        vi: 'Vui lòng nhập tên Minecraft.',
+        en: 'Please enter your Minecraft username.'
+      },
+      arena_required_discord: {
+        vi: 'Vui lòng nhập tên người dùng Discord.',
+        en: 'Please enter your Discord username.'
+      },
+      arena_required_phone: {
+        vi: 'Vui lòng nhập số điện thoại liên hệ.',
+        en: 'Please enter a contact phone number.'
+      },
+      arena_phone_invalid: {
+        vi: 'Số điện thoại chưa đúng định dạng. Hãy kiểm tra và nhập lại.',
+        en: 'The phone number format is invalid. Check it and try again.'
       }
     };
     return fallbackMessages[key]?.[language] || (
@@ -260,8 +276,23 @@
   });
 
   document.addEventListener('app-language-changed', renderLocalizedState);
-  phoneInput.addEventListener('input', () => validatePhoneNumber());
+  phoneInput.addEventListener('input', () => {
+    if (validatePhoneNumber() && feedbackState?.key === 'arena_phone_invalid') {
+      setFeedback(null);
+    }
+  });
   phoneInput.addEventListener('blur', () => validatePhoneNumber());
+  form.addEventListener('input', (event) => {
+    const fieldForMessage = {
+      arena_required_minecraft: 'arenaMinecraftUsername',
+      arena_required_discord: 'arenaDiscordUsername',
+      arena_required_phone: 'arenaPhoneNumber'
+    }[feedbackState?.key];
+
+    if (fieldForMessage === event.target.id && event.target.value.trim()) {
+      setFeedback(null);
+    }
+  });
 
   form.addEventListener('submit', async (event) => {
     event.preventDefault();
@@ -277,22 +308,23 @@
     };
 
     const selectedTeam = [...teamsByCode.values()].find((team) => team.id === registration.team_id);
-    const missingField = !registration.minecraft_username
-      ? document.getElementById('arenaMinecraftUsername')
+    const requiredField = !registration.minecraft_username
+      ? { input: document.getElementById('arenaMinecraftUsername'), message: 'arena_required_minecraft' }
       : !registration.discord_username
-        ? document.getElementById('arenaDiscordUsername')
+        ? { input: document.getElementById('arenaDiscordUsername'), message: 'arena_required_discord' }
         : !registration.phone_number
-          ? document.getElementById('arenaPhoneNumber')
+          ? { input: document.getElementById('arenaPhoneNumber'), message: 'arena_required_phone' }
           : null;
 
-    if (missingField) {
-      setFeedback('arena_required_fields');
-      missingField.focus();
+    if (requiredField) {
+      setFeedback(requiredField.message);
+      requiredField.input.focus();
       return;
     }
 
     const normalizedPhoneNumber = validatePhoneNumber();
     if (!normalizedPhoneNumber) {
+      setFeedback('arena_phone_invalid');
       phoneInput.focus();
       return;
     }

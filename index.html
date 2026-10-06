@@ -542,7 +542,7 @@
                   </div>
                   <p class="arenawar_registration_note" data-i18n="arena_registration_note">Đơn đăng ký sẽ ở trạng thái chờ cho đến khi admin duyệt.</p>
                   <p class="arenawar_registration_status" id="arenaConnectionStatus" role="status" aria-live="polite" data-i18n="arena_loading">Đang kết nối Arena War...</p>
-                  <form class="arenawar_registration_form" id="arenaRegistrationForm">
+                  <form class="arenawar_registration_form" id="arenaRegistrationForm" novalidate>
                     <label class="arenawar_required_label" for="arenaMinecraftUsername" data-i18n="arena_minecraft_label">Tên Minecraft</label>
                     <input id="arenaMinecraftUsername" name="minecraft_username" type="text" maxlength="100" autocomplete="username" required />
 
@@ -1340,6 +1340,9 @@
           arena_existing_approved: 'Tên Minecraft này đã được quản trị viên duyệt vào đội “{team}”; không thể đăng ký thêm.',
           arena_existing_rejected: 'Đơn đăng ký trước cho tên Minecraft này vào đội “{team}” đã bị từ chối. Vui lòng liên hệ quản trị viên nếu cần được xem xét lại.',
           arena_required_fields: 'Vui lòng điền đầy đủ và chính xác các thông tin bắt buộc.',
+          arena_required_minecraft: 'Vui lòng nhập tên Minecraft.',
+          arena_required_discord: 'Vui lòng nhập tên người dùng Discord.',
+          arena_required_phone: 'Vui lòng nhập số điện thoại liên hệ.',
           arena_team_required: 'Vui lòng chọn đội đăng ký bằng cách mở form từ mặt sau của thẻ đội.',
           arena_submit_error: 'Không gửi được đăng ký. Vui lòng thử lại sau.',
           arena_no_members: 'Chưa có thành viên được duyệt',
@@ -1514,6 +1517,9 @@
           arena_existing_approved: 'This Minecraft username has already been approved for “{team}”; another registration is not allowed.',
           arena_existing_rejected: 'The previous registration for this Minecraft username on “{team}” was rejected. Contact an administrator if you would like it reviewed.',
           arena_required_fields: 'Please complete all required fields accurately.',
+          arena_required_minecraft: 'Please enter your Minecraft username.',
+          arena_required_discord: 'Please enter your Discord username.',
+          arena_required_phone: 'Please enter a contact phone number.',
           arena_team_required: 'Choose a team by flipping its card and opening the registration form.',
           arena_submit_error: 'Could not submit registration. Please try again later.',
           arena_no_members: 'No approved members yet',
@@ -1702,8 +1708,8 @@
       // Start countdown when page loads
       updateCountdown();
     </script>
-    <script src="scripts/arenawar-runtime-config.js?v=20261006-1815"></script>
-    <script src="scripts/arenawar-config.js?v=20261006-1815"></script>
-    <script src="scripts/arenawar.js?v=20261006-1815"></script>
+    <script src="scripts/arenawar-runtime-config.js?v=20261006-1817"></script>
+    <script src="scripts/arenawar-config.js?v=20261006-1817"></script>
+    <script src="scripts/arenawar.js?v=20261006-1817"></script>
   </body>
 </html>
