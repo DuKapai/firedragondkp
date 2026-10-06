@@ -36,7 +36,8 @@ jobs:
           cp index.html _site/
           cp -R media _site/media
           mkdir _site/scripts
-          cp scripts/arenawar-runtime-config.js scripts/arenawar-config.js scripts/arenawar.js scripts/style.css scripts/arenawar-styles.css scripts/bloodmoon.css _site/scripts/
+          cp scripts/arenawar-runtime-config.js scripts/arenawar-config.js scripts/arenawar.js _site/scripts/
+          cp -R css _site/css
 
       - name: Upload Pages artifact
         uses: actions/upload-pages-artifact@v3

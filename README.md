@@ -34,9 +34,9 @@ static-site deployment because a browser-based website needs the public anon
 key to call Supabase. It is not a secret; never use a `service_role` key in
 the frontend. `.env` remains ignored by Git.
 
-The deployment workflow copies browser scripts and site stylesheets from
-`scripts/` to the Pages artifact. Website CSS is kept in `scripts/`; the
-separate Angular app keeps its component styles under `angular-app/src/`.
+The deployment workflow copies browser scripts from `scripts/` and site
+stylesheets from `css/` to the Pages artifact. The separate Angular app keeps
+its component styles under `angular-app/src/`.
 The public anon key will be visible to visitors in browser requests, so
 protect data with Row Level Security and column grants.
 
@@ -125,7 +125,7 @@ done in Supabase.
 #### How do I personalize this website?
 
 To edit this website, simply fork the repository and edit "index.html" and
-"scripts/style.css".
+"css/style.css".
 Reading through the code should be enough to understand what you are able to edit.
 
 #### How do I make the Discord Embed work?
