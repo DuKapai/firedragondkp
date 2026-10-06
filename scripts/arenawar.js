@@ -127,7 +127,7 @@
     return body ? JSON.parse(body) : null;
   }
 
-  async function findRegisteredTeam(username) {
+  async function findExistingRegistration(username) {
     if (registrationLookupAvailable !== false) {
       try {
         const matches = await supabaseRequest('rpc/lookup_arena_registration_team', {
@@ -136,7 +136,7 @@
           body: JSON.stringify({ p_minecraft_username: username })
         });
         registrationLookupAvailable = true;
-        return matches[0]?.team_name || null;
+        return matches[0] || null;
       } catch (error) {
         if (error.databaseCode !== 'PGRST202') throw error;
         registrationLookupAvailable = false;
@@ -149,8 +149,19 @@
     return approvedTeamByUsername.get(username.trim().toLowerCase()) || null;
   }
 
-  function setAlreadyRegisteredMessage(teamName) {
-    setFeedback(teamName ? 'arena_already_registered' : 'arena_duplicate', teamName);
+  function setExistingRegistrationMessage(registration) {
+    const statusMessage = {
+      PENDING: 'arena_existing_pending',
+      APPROVED: 'arena_existing_approved',
+      REJECTED: 'arena_existing_rejected'
+    }[registration?.status];
+
+    if (!statusMessage) {
+      setFeedback('arena_duplicate');
+      return;
+    }
+
+    setFeedback(statusMessage, registration.team_name);
   }
 
   function setTeams(teams) {
@@ -172,10 +183,10 @@
       if (members) members.push(registration.minecraft_username);
       const teamName = teamNamesById.get(String(registration.team_id));
       if (teamName) {
-        approvedTeamByUsername.set(
-          registration.minecraft_username.trim().toLowerCase(),
-          teamName,
-        );
+        approvedTeamByUsername.set(registration.minecraft_username.trim().toLowerCase(), {
+          team_name: teamName,
+          status: 'APPROVED'
+        });
       }
     });
 
@@ -269,9 +280,9 @@
     setFeedback('arena_sending');
 
     try {
-      const registeredTeam = await findRegisteredTeam(registration.minecraft_username);
-      if (registeredTeam) {
-        setAlreadyRegisteredMessage(registeredTeam);
+      const existingRegistration = await findExistingRegistration(registration.minecraft_username);
+      if (existingRegistration) {
+        setExistingRegistrationMessage(existingRegistration);
         return;
       }
 
@@ -290,7 +301,9 @@
       console.error('Arena War registration failed:', error);
       if (error.code === 409 || error.databaseCode === '23505') {
         try {
-          setAlreadyRegisteredMessage(await findRegisteredTeam(registration.minecraft_username));
+          setExistingRegistrationMessage(
+            await findExistingRegistration(registration.minecraft_username),
+          );
         } catch (lookupError) {
           console.error('Could not look up the existing Arena War registration:', lookupError);
           setFeedback('arena_duplicate');

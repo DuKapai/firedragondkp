@@ -61,23 +61,25 @@ grant insert (minecraft_username, discord_username, phone_number, team_id, statu
 on public.arena_registrations to anon, authenticated;
 ```
 
-To check registrations in every status and show the already-registered team
-name, create this RPC in Supabase. It returns only the matching team name (not
-the registrant's phone number, Discord name, or status). Because it accepts a
-public username lookup, visitors can check whether a guessed Minecraft name is
-registered and which team it chose.
+To check registrations in every status and show the appropriate message, create
+this RPC in Supabase. It returns only the matching team name and registration
+status (not the registrant's phone number or Discord name). Because it accepts
+a public username lookup, visitors can check whether a guessed Minecraft name
+is registered, which team it chose, and whether it is pending/approved/rejected.
 
 ```sql
+drop function if exists public.lookup_arena_registration_team(text);
+
 create or replace function public.lookup_arena_registration_team(
   p_minecraft_username text
 )
-returns table (team_name text)
+returns table (team_name text, status text)
 language sql
 stable
 security definer
 set search_path = ''
 as $$
-  select t.team_name::text
+  select t.team_name::text, r.status::text
   from public.arena_registrations as r
   join public.arena_teams as t on t.id = r.team_id
   where p_minecraft_username is not null
@@ -90,6 +92,8 @@ $$;
 revoke all on function public.lookup_arena_registration_team(text) from public;
 grant execute on function public.lookup_arena_registration_team(text)
 to anon, authenticated;
+
+notify pgrst, 'reload schema';
 ```
 
 Keep the database unique constraint as the final protection against concurrent
@@ -104,8 +108,9 @@ on public.arena_registrations (lower(btrim(minecraft_username)));
 If this index cannot be created, first resolve any existing usernames that
 become duplicates after trimming and ignoring case.
 
-When a username already has a registration, the form displays the team name
-resolved from its `team_id` and does not insert another row.
+When a username already has a registration, the form uses its status to explain
+whether it is awaiting review, approved, or rejected, and does not insert
+another row.
 
 The Season 3 team cards open a registration dialog for the selected team. The
 form requires a Minecraft username, Discord username, and contact phone number;
