@@ -683,86 +683,98 @@
         <a class="headline" data-i18n="admin_team_title">Administration Team</a>
 
         <div class="main5_supporter_div">
-          <div class="main5_supporters_div">
+          <a
+            class="main5_supporters_div"
+            href="https://www.facebook.com/duongha.anh.353/"
+            target="_blank"
+            rel="noopener noreferrer"
+            aria-label="Panda - Dương Hà Quỳnh Anh"
+          >
             <img
               class="main5_supporters_img"
               src="media/Panda-facebook.jpg"
               alt="Panda"
             />
               <div class="main5_supporters_description_div">
-                <a
-                  class="main5_supporters_description_rank main5_supporters_description_rank_supporter" data-i18n="admin_rank_2"
+                <span
+                  class="main5_supporters_description_rank main5_supporters_description_rank_supporter"
+                  data-i18n="admin_rank_2"
                 >
                   [Sub-Administrator]
-                </a>
-                <a
+                </span>
+                <span
                   class="main5_supporters_description_title"
-                  href="https://www.facebook.com/duongha.anh.353/"
-                  target="_blank"
-                  rel="noopener noreferrer"
                 >
                   Panda
-                </a>
-                <a class="main5_supporters_description" data-i18n="admin2_info">
+                </span>
+                <span class="main5_supporters_description" data-i18n="admin2_info">
                   Duong Ha Quynh Anh<br />
                   Thư ký · Community Supervisor
-                </a>
+                </span>
               </div>
-          </div>
+          </a>
 
-          <div class="main5_supporters_div">
+          <a
+            class="main5_supporters_div"
+            href="https://www.phonghuynh.dev/"
+            target="_blank"
+            rel="noopener noreferrer"
+            aria-label="RAYKY VN - Huỳnh Thanh Phong"
+          >
             <img
               class="main5_supporters_img"
-              src="media/RAYKY-facebook.jpg"
+              src="media/HuynhPhong.png"
               alt="Rayky"
             />
               <div class="main5_supporters_description_div">
-                <a
-                  class="main5_supporters_description_rank main5_supporters_description_rank_supporter" data-i18n="admin_rank_2"
+                <span
+                  class="main5_supporters_description_rank main5_supporters_description_rank_supporter"
+                  data-i18n="admin_rank_2"
                 >
                   [Sub-Administrator]
-                </a>
-                <a
+                </span>
+                <span
                   class="main5_supporters_description_title"
-                  href="https://www.facebook.com/phonghuynh031226"
-                  target="_blank"
-                  rel="noopener noreferrer"
                 >
                   RAYKY VN
-                </a>
-                <a class="main5_supporters_description" data-i18n="admin3_info">
+                </span>
+                <span class="main5_supporters_description" data-i18n="admin3_info">
                   Huynh Thanh Phong<br />
                   Technical &amp; Bảo mật
-                </a>
+                </span>
               </div>
-          </div>
+          </a>
 
-          <div class="main5_supporters_div">
+          <a
+            class="main5_supporters_div"
+            href="https://www.facebook.com/bui.duy.truong.917715"
+            target="_blank"
+            rel="noopener noreferrer"
+            aria-label="Zane Sakura - Bùi Duy Trường"
+          >
             <img
               class="main5_supporters_img"
               src="media/DuyTruong-facebook.jpg"
               alt="Duy Trường"
             />
               <div class="main5_supporters_description_div">
-                <a
-                  class="main5_supporters_description_rank main5_supporters_description_rank_supporter" data-i18n="admin_rank_2"
+                <span
+                  class="main5_supporters_description_rank main5_supporters_description_rank_supporter"
+                  data-i18n="admin_rank_2"
                 >
                   [Sub-Administrator]
-                </a>
-                <a
+                </span>
+                <span
                   class="main5_supporters_description_title"
-                  href="https://www.facebook.com/bui.duy.truong.917715"
-                  target="_blank"
-                  rel="noopener noreferrer"
                 >
                   Zane Sakura
-                </a>
-                <a class="main5_supporters_description" data-i18n="admin4_info">
+                </span>
+                <span class="main5_supporters_description" data-i18n="admin4_info">
                   Bui Duy Truong<br/>
                   Thiết kế và Kiến trúc hệ thống
-                </a>
+                </span>
               </div>
-          </div>
+          </a>
         </div>
       </div>
       <div id="join"></div>
@@ -1132,23 +1144,6 @@
       document.querySelectorAll(".fade-in-up, .card-hover-3d, .slide-in-right, .box-shadow-glow, .card-fade-in").forEach((el) => {
         observer.observe(el);
       });
-
-      // ==================== CARD CLICK NAVIGATION ====================
-      (function () {
-        const cards = document.querySelectorAll(
-          ".main5_admins_div, .main5_supporters_div"
-        );
-
-        cards.forEach((card) => {
-          card.addEventListener("click", function (e) {
-            if (e.target.tagName.toLowerCase() === "a") return;
-            const link = card.querySelector("a[href]");
-            if (link) {
-              window.open(link.href, "_blank");
-            }
-          });
-        });
-      })();
 
       // ==================== DIPAX CONTACT CARD ====================
       const dipaxContactCard = document.getElementById('dipaxContactCard');
