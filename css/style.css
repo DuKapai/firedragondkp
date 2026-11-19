@@ -3517,6 +3517,8 @@ body {
     max-width: 100%;
     max-height: 250px;
     margin: 0 auto;
+    object-fit: cover;
+    object-position: center;
   }
 
   .main4_dc_description_div {
@@ -3936,7 +3938,6 @@ html {
     width: 100%;
     height: auto;
     max-height: none;
-    aspect-ratio: 16 / 9;
   }
 
   .main5_admins_description_div,
@@ -4524,7 +4525,8 @@ iframe {
     width: min(100%, 22rem);
     height: auto;
     max-height: min(55svh, 30rem);
-    object-fit: contain;
+    object-fit: cover;
+    object-position: center;
   }
 
   .lobby_system_node {
